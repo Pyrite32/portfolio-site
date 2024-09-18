@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'Aeonik Black';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('./assets/fonts/AEONIK-BLACK.TTF') format('ttf');
+  }
+
+  @font-face {
+    font-family: 'Aeonik Bold';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/AEONIK-BOLD.TTF') format('ttf');
+  }
+
+}
+
+:root {
+
+}
+
+
+html,
+body,
+main {
+
+}
+
 .main-content {
   --main-content-primary-color: #C6C6C6;
   display: block;
