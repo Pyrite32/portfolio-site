@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <main className="main-content">
+      <main className="main-content bg-off-white">
         <Overview />
       </main>
     </>

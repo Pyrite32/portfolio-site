@@ -7,6 +7,7 @@ export default {
         md: "768px",
         lg: "976px",
         xl: "1440px",
+        overviewTextBp: "1790px",
       },
       colors: {
         "white":         "#FFFFFF",
@@ -23,7 +24,9 @@ export default {
       },
       fontFamily: {
         sans: ["Aeonik", "sans-serif"],
-        serif: ["Mondwest", "Times New Roman", "sans-serif"]
+        serif: ["Mondwest", "Times New Roman", "sans-serif"],
+        unbounded: ["Unbounded", "Arial", "fantasy"],
+        nova: ["NovaFlat Regular", "Arial", "sans-serif"],
       },
       extend: {
       },
