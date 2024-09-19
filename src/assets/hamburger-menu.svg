@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 24 30"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="hamburger-menu.svg"
+   inkscape:version="1.3.1 (91b66b0783, 2023-11-16)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="19.445436"
+     inkscape:cx="0.53997246"
+     inkscape:cy="18.076221"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title1">menu_hamburger</title>
+  <path
+     d="M 20,13.848749 A 1.1043022,0.90507843 47.845022 0 0 19,12.649474 L 5,9.8596161 a 1.1045894,0.90531381 47.845022 0 0 0,1.9999999 l 14,2.789858 a 1.1043022,0.90507843 47.845022 0 0 1,-0.800725 z m -1,4.800725 -7,-1.394929 a 1.1045894,0.90531381 47.845022 0 0 0,2 l 7,1.394929 a 1.1045894,0.90531381 47.845022 0 0 0,-2 z M 5,5.8596166 12,7.2545455 a 1.1045894,0.90531381 47.845022 0 0 0,-2 L 5,3.8596166 a 1.1045894,0.90531381 47.845022 0 0 0,2 z"
+     id="path1"
+     style="fill:#ffffff;fill-opacity:1" />
+</svg>

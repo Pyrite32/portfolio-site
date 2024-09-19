@@ -1,4 +1,12 @@
 .overview-top__bar-wrapper {
-    background-color: coral;
     width: 90%;
+}
+
+.overview-middle__backdrop {
+    margin-top: 12rem;
+}
+
+.overview-middle__backdrop-torn-offset {
+    position: relative;
+    top: 54rem;
 }

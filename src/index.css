@@ -29,7 +29,10 @@
 html,
 body,
 main {
-
+  cursor: url('assets/cursor-fuschia.svg'), pointer !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  backface-visibility: hidden;
 }
 
 .main-content {
@@ -56,6 +59,8 @@ main {
   background-position: 0 0;
   pointer-events: none;
 }
+
+
 
 @keyframes background-noise-effect {
   0% {
