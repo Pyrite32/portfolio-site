@@ -1,13 +1,31 @@
-import BurgerIcon from "../assets/hamburger-menu.svg"
+import BurgerIcon from "../assets/hamburger-menu.svg";
 
 const Burger = () => {
-    return (
-        <div className="sticky z-40">
-            <a href="/test">
-                <img src={BurgerIcon} alt="" width="48px" height="48px"/>
-            </a>
-        </div>
-    );
-}
+  return (
+    <div className="fixed z-40 right-5">
+      <a href="/test">
+        <svg
+          viewBox="0 0 24 30"
+          x="0px"
+          y="0px"
+          width="64px"
+          height="64px"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill="#121214"
+            d="m 5,5.8596166 7,1.3949289 a 1.1045894,0.90531381 47.845022 0 0 0,-2 L 5,3.8596166 a 1.1045894,0.90531381 47.845022 0 0 0,2 z"
+          />
+          <path fill="#121214"
+            d="m 19,18.649474 -7,-1.394929 a 1.1045894,0.90531381 47.845022 0 0 0,2 l 7,1.394929 a 1.1045894,0.90531381 47.845022 0 0 0,-2 z"
+          />
+          <path fill="#121214"
+            d="M 20,13.848749 A 1.1043022,0.90507843 47.845022 0 0 19,12.649474 L 5,9.8596161 a 1.1045894,0.90531381 47.845022 0 0 0,1.9999999 l 14,2.789858 a 1.1043022,0.90507843 47.845022 0 0 1,-0.800725 z"
+          />
+        </svg>
+      </a>
+    </div>
+  );
+};
 
 export default Burger;

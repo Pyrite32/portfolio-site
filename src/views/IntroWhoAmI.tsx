@@ -1,4 +1,4 @@
-const PageThree = () => {
+const IntroWhoAmI = () => {
     return (
         <div>
             
@@ -6,4 +6,4 @@ const PageThree = () => {
     );
 }
 
-export default PageThree;
+export default IntroWhoAmI;

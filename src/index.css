@@ -38,7 +38,8 @@
 }
 
 :root {
-
+  --mega-scale-factor-x: calc(100vw / 1920);
+  --mega-scale-factor-y: calc(100vh / 1080);
 }
 
 

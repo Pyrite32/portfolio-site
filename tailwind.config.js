@@ -8,6 +8,7 @@ export default {
         lg: "976px",
         xl: "1440px",
         overviewTextBp: "1790px",
+        mega: "1921px",
       },
       colors: {
         "white":         "#FFFFFF",
