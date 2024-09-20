@@ -21,8 +21,8 @@ const Overview = () => {
         </nav>
         <div className="__SPACER__ my-3">&nbsp;</div>
         <div className="overview-image-container">
-            <div className="clip-paper bg-black absolute block mega:hidden" />
-            <div className="big-clip-paper bg-black absolute hidden mega:block" />
+            <div className="clip-paper grid-bg clip-paper-small bg-black absolute block mega:hidden" />
+            <div className="clip-paper grid-bg big-clip-paper bg-black absolute hidden mega:block" />
             <img
                 src={TornPaperEdge}
                 alt="paper-edge"
