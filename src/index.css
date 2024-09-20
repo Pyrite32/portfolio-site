@@ -35,6 +35,23 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'Yamaha EBM7 Regular';
+    src: url('./assets/fonts/Yamaha\ EBM7\ Regular.ttf');
+    font-weight: normal;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Mondwest';
+    src: url('./assets/fonts/Mondwest-regular.ttf');
+    font-weight: normal;
+    font-display: swap;
+    font-style: normal;
+  }
+
+
 }
 
 :root {
@@ -54,12 +71,14 @@ main {
 
 h1 {
   font-size: 6.75rem;
-  font-family: 'Unbounded' Arial, fantasy;
+  font-family: 'Unbounded', Arial, fantasy;
+  color: theme('colors.white');
 }
 
 p {
   font-size: 2.25rem;
   font-family: 'NovaFlat Regular';
+  color: theme('colors.light-gray');
 }
 
 .main-content {
@@ -133,6 +152,7 @@ p {
     transform: translate3d(-7rem, 0, 0)
   }
 }
+
 
 
 /* :root {

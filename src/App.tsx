@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Overview from "./views/Overview"
+import IntroWhoAmI from './views/IntroWhoAmI'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,24 +11,10 @@ function App() {
   return (
     <>
       <main className="main-content bg-off-white">
-        <Overview />
-        <section className="">
-          <p>
-            HELLO DESC
-            <br />A
-            <br />B
-            <br />C
-            <br />D
-            <br />A
-            <br />B
-            <br />C
-            <br />D
-            <br />A
-            <br />B
-            <br />C
-            <br />D
-          </p>
-        </section>
+        {/* <Overview /> */}
+        <div className='in-front relative z-10 h-screen'>
+          <IntroWhoAmI />
+        </div>
       </main>
     </>
   )

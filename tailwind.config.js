@@ -25,9 +25,10 @@ export default {
       },
       fontFamily: {
         sans: ["Aeonik", "sans-serif"],
-        serif: ["Mondwest", "Times New Roman", "sans-serif"],
+        serif: [ "Mondwest", "fantasy"],
         unbounded: ["Unbounded", "Arial", "fantasy"],
         nova: ["NovaFlat Regular", "Arial", "sans-serif"],
+        pixel: ["Yamaha EBM7 Regular", "fantasy"],
       },
       extend: {
       },

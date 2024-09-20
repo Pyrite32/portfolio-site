@@ -1,0 +1,35 @@
+
+.grid-bg-intro {
+    background-image: url('../assets/grid-bg-opacity-30.png');
+    animation: 28s linear infinite bg-move-i;
+    will-change: background-position;
+    --grid-bg-intro-offset: 0%;
+}
+
+/* I know some people who get motion sickness */
+@media (prefers-reduced-motion) {
+    .grid-bg-intro {
+        animation: none;
+    }
+}
+
+@keyframes bg-move-i {
+    0% {
+        background-position: calc(0% + var(--grid-bg-intro-offset)) 0%;
+    }
+
+    to {
+        /* I wish there was a better way to make the scrolling animation seamless*/
+        background-position:  42.18vw  0%;
+    }
+}
+
+.no-antialiasing {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: auto;
+}
+
+.h-skills-ticker {
+    height: 30%;
+}

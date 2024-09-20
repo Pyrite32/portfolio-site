@@ -2,7 +2,7 @@ import BurgerIcon from "../assets/hamburger-menu.svg";
 
 const Burger = () => {
   return (
-    <div className="fixed z-40 right-5">
+    <div className="fixed z-40">
       <a href="/test">
         <svg
           viewBox="0 0 24 30"
