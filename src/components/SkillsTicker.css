@@ -1,0 +1,64 @@
+@keyframes ticker {
+  0% {
+    transform: translate3d(0%, 0, 0);
+    visibility: visible;
+  }
+  /*175 270dvw*/
+  100% {
+    transform: translate3d(-175%, 0, 0);
+  }
+}
+
+@keyframes ticker-rev {
+    0% {
+        transform: translate3d(0%, 0, 0);
+      }
+      /*175 270dvw*/
+      100% {
+        transform: translate3d(5150px, 0, 0);
+      }
+}
+
+.ticker-wrap {
+  padding-left: 0%;
+}
+
+.ticker-rev {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker-rev;
+  animation-name: ticker-rev;
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+}
+
+.ticker-wrap .ticker {
+  white-space: nowrap;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+}
+
+.ticker:hover {
+  animation-play-state: paused;
+}
+
+.ticker-rev-paused {
+    animation-play-state: paused;
+}
+
+.ticker__item {
+  pointer-events: all;
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 2rem;
+  color: white;
+}

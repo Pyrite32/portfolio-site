@@ -1,7 +1,7 @@
 
 .grid-bg-intro {
     background-image: url('../assets/grid-bg-opacity-30.png');
-    animation: 28s linear infinite bg-move-i;
+    animation: 1s linear infinite bg-move-i;
     will-change: background-position;
     --grid-bg-intro-offset: 0%;
 }
@@ -15,12 +15,12 @@
 
 @keyframes bg-move-i {
     0% {
-        background-position: calc(0% + var(--grid-bg-intro-offset)) 0%;
+        background-position: 0% 0%;
     }
 
     to {
-        /* I wish there was a better way to make the scrolling animation seamless*/
-        background-position:  42.18vw  0%;
+        /* width of the image */
+        background-position:  59px  0%;
     }
 }
 

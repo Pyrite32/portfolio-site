@@ -1,21 +1,240 @@
-const SkillsTicker = () => {
-    return (
-        <div className="h-full w-full font-serif flex flex-col justify-between">
-            <p className="text-2xl text-light-fuschia font-serif">
-                &lt;SkillsTicker&gt;
-            </p>
-            <hr className="text-light-fuschia" />
-            <div className="flex-grow skills-ticker-main">
-                <p>
-                    hi
-                </p>
-            </div>
-            <hr className="text-light-fuschia" />
-            <p className="text-2xl text-light-fuschia font-serif text-right py-1">
-                &lt;/SkillsTicker&gt;
-            </p>
+import blenderIcon from "../assets/my-skills-icons/blender.png";
+import cppIcon from "../assets/my-skills-icons/c-plus-plus.png";
+import cSharpIcon from "../assets/my-skills-icons/c-sharp.png";
+import cssIcon from "../assets/my-skills-icons/css.png";
+import figmaIcon from "../assets/my-skills-icons/figma.png";
+import godotIcon from "../assets/my-skills-icons/godot.png";
+import htmlIcon from "../assets/my-skills-icons/html.png";
+import illustratorIcon from "../assets/my-skills-icons/illustrator.png";
+import javaIcon from "../assets/my-skills-icons/java.png";
+import javascriptIcon from "../assets/my-skills-icons/javascript.png";
+import logicProIcon from "../assets/my-skills-icons/logic-pro.png";
+import luaIcon from "../assets/my-skills-icons/lua.png";
+import mongoDBIcon from "../assets/my-skills-icons/mongo-db.png";
+import oracleIcon from "../assets/my-skills-icons/oracle.png";
+import photoshopIcon from "../assets/my-skills-icons/photoshop.png";
+import pythonIcon from "../assets/my-skills-icons/python.png";
+import reactIcon from "../assets/my-skills-icons/react.png";
+import rustIcon from "../assets/my-skills-icons/rust.png";
+import tailwindIcon from "../assets/my-skills-icons/tailwind.png";
+import toonBoomIcon from "../assets/my-skills-icons/toon-boom.png";
+import typescriptIcon from "../assets/my-skills-icons/typescript.png";
+import unityIcon from "../assets/my-skills-icons/unity.png";
+import webflowIcon from "../assets/my-skills-icons/webflow.png";
+import muiIcon from "../assets/my-skills-icons/mui.png";
+import "./SkillsTicker.css";
+import { useState, useRef, useEffect } from "react";
+import useMeasure from "react-use-measure";
+// load icons
+// move an icon until it disappears
+// track whenever icon escapes screen fully
+//
+
+const icons = [
+  cSharpIcon,
+  htmlIcon,
+  cssIcon,
+  tailwindIcon,
+  javascriptIcon,
+  typescriptIcon,
+  reactIcon,
+  pythonIcon,
+  mongoDBIcon,
+  oracleIcon,
+  muiIcon,
+  javaIcon,
+  rustIcon,
+  cppIcon,
+  figmaIcon,
+  luaIcon,
+  webflowIcon,
+  photoshopIcon,
+  illustratorIcon,
+  blenderIcon,
+  godotIcon,
+  logicProIcon,
+  toonBoomIcon,
+];
+
+const names = [
+  "C#",
+  "HTML",
+  "CSS",
+  "Tailwind CSS",
+  "JavaScript",
+  "TypeScript",
+  "React.js",
+  "Python",
+  "MongoDB",
+  "Oracle SQL",
+  "Material UI",
+  "Java",
+  "Rust",
+  "C++",
+  "Figma",
+  "Lua",
+  "Webflow",
+  "Adobe Photoshop",
+  "Adobe Illustrator",
+  "Blender",
+  "Godot",
+  "Logic Pro X",
+  "Toon Boom Harmony",
+];
+
+const descriptions = [
+    "A versatile, object-oriented programming language developed by Microsoft, primarily used for building .NET apps and Unity games",
+    "The standard markup language for creating web pages, providing the structure and content of a website",
+    "A stylesheet language used to describe the presentation and layout of HTML documents, allowing for styling and responsive design",
+    "A utility-first CSS framework that enables rapid UI development by providing low-level utility classes for styling",
+    "A high-level, dynamic programming language widely used for adding interactivity and functionality to web pages",
+    "A superset of JavaScript that adds static typing, enabling developers to catch errors early and improve code quality",
+    "A JavaScript library for building user interfaces, particularly single-page applications, using a component-based architecture",
+    "A high-level, interpreted programming language known for its readability and versatility, commonly used in web development, data science, and automation",
+    "A NoSQL database that stores data in flexible, JSON-like documents, making it easy to work with unstructured data",
+    "A powerful relational database management system (RDBMS) that uses SQL (Structured Query Language) for managing and querying data",
+    "A popular React component library that implements Google’s Material Design, providing pre-styled components for building responsive web applications",
+    "A widely-used, object-oriented programming language known for its portability across platforms via the Java Virtual Machine (JVM)",
+    "A systems programming language focused on safety and performance, featuring memory safety guarantees without needing a garbage collector",
+    "An extension of the C programming language that includes object-oriented features, widely used in software development, game development, and systems programming",
+    "A web-based UI/UX design tool that allows for collaborative design and prototyping in real-time",
+    "A lightweight, high-level scripting language often used in game development and embedded systems for its simplicity and flexibility",
+    "A web design tool that allows users to build responsive websites visually without writing code, while generating clean HTML, CSS, and JavaScript",
+    "A powerful image editing software used for photo manipulation, graphic design, and digital artwork",
+    "A vector graphics editor used for creating logos, illustrations, and complex designs with precision",
+    "An open-source 3D creation suite that supports the entirety of the 3D pipeline, including modeling, animation, and rendering",
+    "An open-source game engine for creating both 2D and 3D games, known for its user-friendly interface and flexible scripting",
+    "A digital audio workstation (DAW) developed by Apple for music production, offering advanced audio editing and mixing tools",
+    "A professional animation software used for creating both 2D and 3D animated content, favored by studios for its powerful features",
+]
+
+interface SkillsTickerIconData {
+  src: string;
+  name: string;
+  desc: string;
+  pause: boolean;
+}
+
+const lerp = (from: number, to: number, weight: number) => {
+  return from + (to - from) * weight;
+};
+
+const inverseLerp = (from: number, to: number, val: number) => {
+  return (val - from) / (to - from);
+};
+
+const remap = (
+  val: number,
+  istart: number,
+  istop: number,
+  ostart: number,
+  ostop: number
+) => {
+  return lerp(ostart, ostop, inverseLerp(istart, istop, val));
+};
+
+const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
+  src,
+  name,
+  desc,
+  pause,
+}) => {
+  const [showTooltip, set] = useState(false);
+  const [ref, rect] = useMeasure();
+  const [tooltipRef, tooltipRect] = useMeasure();
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <>
+      <img
+        ref={ref}
+        className="ticker__item"
+        src={src}
+        alt={name}
+        width="224px"
+        height="224px"
+        onMouseEnter={() => set(true)}
+        onMouseLeave={() => set(false)}
+        style={{
+          opacity: showTooltip ? "50%" : "100%",
+        }}
+      />
+        <div
+          ref={tooltipRef}
+          className={`max-w-2xl fixed bg-black p-4 pointer-events-none ticker-rev ${pause ? 'ticker-rev-paused' : ''}`}
+          style={{
+            visibility: (showTooltip ? 'visible' : 'hidden'),
+            left: 0 + mousePosition.x,
+            top: remap(
+              mousePosition.y,
+              rect.top,
+              rect.bottom,
+              0 - tooltipRect.height,
+              160 - tooltipRect.height
+            ),
+          }}
+        >
+          <p className="text-lg font-pixel font-bold">{name}</p>
+          <p className="text-sm max-w-full text-wrap">
+            {desc}
+          </p>
         </div>
-    );
+    </>
+  );
+};
+
+const SkillsTicker = () => {
+
+  const [isHoveringTicker, setHoveringTicker] = useState(false);
+
+  return (
+    <div className="h-full w-full font-serif flex flex-col justify-between">
+      <p className="text-2xl text-light-fuschia font-serif">
+        &lt;SkillsTicker&gt;
+      </p>
+      <hr className="text-light-fuschia" />
+      <div className="ticker-wrap flex flex-grow ">
+        <div className="ticker flex justify-start items-center" 
+            onMouseEnter={() => setHoveringTicker(true)}
+            onMouseLeave={() => setHoveringTicker(false)}
+            >
+          {icons.map((icon, index) => (
+            <SkillsTickerIcon
+              src={icon}
+              name={names[index]}
+              desc={descriptions[index]}
+              pause={isHoveringTicker}
+            />
+          ))}
+          {icons.map((icon, index) => (
+            <SkillsTickerIcon
+              src={icon}
+              name={names[index]}
+              desc={descriptions[index]}
+              pause={isHoveringTicker}
+            />
+          ))}
+        </div>
+      </div>
+      <hr className="text-light-fuschia" />
+      <p className="text-2xl text-light-fuschia font-serif text-right py-1">
+        &lt;/SkillsTicker&gt;
+      </p>
+    </div>
+  );
 };
 
 export default SkillsTicker;
