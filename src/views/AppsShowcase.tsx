@@ -74,7 +74,7 @@ const AppsShowcase = () => {
               </svg>
             </div>
             <div className="p-10 pr-0 h-full flex flex-row">
-              <div className="w-1/2 bg-yellow">
+              <div className="w-1/2">
                 {rouletteView ? <AppsShowcaseRoulette /> : <AppsShowcaseListView />}
               </div>
               <div className="flex flex-col justify-center items-center w-1/2">

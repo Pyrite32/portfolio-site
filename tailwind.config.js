@@ -16,6 +16,7 @@ export default {
         "fuschia":       "#F41249",
         "light-fuschia": "#F03C67",
         "black":         "#121214",
+        "teal":           "#18939B",
         "dark-gray":     "#1E1E1E",
         "gray":          "#3F3F3F",
         "off-white":     "#D9D9D9",
