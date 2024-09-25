@@ -1,9 +1,12 @@
 import SkillsTicker from "../components/SkillsTicker";
 import "./IntroWhoAmI.css";
+import useMeasure from 'react-use-measure';
 
 const IntroWhoAmI = () => {
+  const [ introRef, { top }] = useMeasure();
+
   return (
-    <section className="intro bg-black grid-bg-intro h-full flex flex-col justify-center">
+    <section ref={introRef} className="intro bg-black grid-bg-intro h-full flex flex-col justify-center">
       <div className="intro-main flex-grow flex flex-col h-2/4 gap-28 justify-end">
         <div className="intro-text flex gap-4">
           <div className="text-right text-7xl w-2/12">🦄</div>
@@ -47,7 +50,7 @@ const IntroWhoAmI = () => {
         </div>
       </div>
       <div className="intro-skills h-skills-ticker w-11/12 mb-5 mx-auto">
-        <SkillsTicker />
+        <SkillsTicker offsetY={top} />
       </div>
     </section>
   );

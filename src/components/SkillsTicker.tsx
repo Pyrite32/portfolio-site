@@ -113,6 +113,11 @@ interface SkillsTickerIconData {
   name: string;
   desc: string;
   pause: boolean;
+  offsetY: number;
+}
+
+interface SkillsTickerData {
+    offsetY: number;
 }
 
 const lerp = (from: number, to: number, weight: number) => {
@@ -138,6 +143,7 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
   name,
   desc,
   pause,
+  offsetY
 }) => {
   const [showTooltip, set] = useState(false);
   const [ref, rect] = useMeasure();
@@ -181,9 +187,9 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
             top: remap(
               mousePosition.y,
               rect.top,
-              rect.bottom,
-              0 - tooltipRect.height,
-              160 - tooltipRect.height
+              Math.min(rect.bottom, rect.top + 160), //not all images are equally sized, so the top and bottom rect difference is high 
+              0 - tooltipRect.height + offsetY,
+              160 - tooltipRect.height + offsetY
             ),
           }}
         >
@@ -196,7 +202,7 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
   );
 };
 
-const SkillsTicker = () => {
+const SkillsTicker: React.FC<SkillsTickerData> = (props: {offsetY: number}) => {
 
   const [isHoveringTicker, setHoveringTicker] = useState(false);
 
@@ -206,7 +212,8 @@ const SkillsTicker = () => {
         &lt;SkillsTicker&gt;
       </p>
       <hr className="text-light-fuschia" />
-      <div className="ticker-wrap flex flex-grow ">
+        {/* I would love to put overflow-x-hidden, but it causes the tooltips to clip as well */}
+      <div className="ticker-wrap flex flex-grow">
         <div className="ticker flex justify-start items-center" 
             onMouseEnter={() => setHoveringTicker(true)}
             onMouseLeave={() => setHoveringTicker(false)}
@@ -217,6 +224,7 @@ const SkillsTicker = () => {
               name={names[index]}
               desc={descriptions[index]}
               pause={isHoveringTicker}
+              offsetY={props.offsetY}
             />
           ))}
           {icons.map((icon, index) => (
@@ -225,6 +233,7 @@ const SkillsTicker = () => {
               name={names[index]}
               desc={descriptions[index]}
               pause={isHoveringTicker}
+              offsetY={props.offsetY}
             />
           ))}
         </div>

@@ -15,6 +15,7 @@
       }
       /*175 270dvw*/
       100% {
+        /* I don't like this. there has to be a better way to cancel a parent's transform. */
         transform: translate3d(5150px, 0, 0);
       }
 }
