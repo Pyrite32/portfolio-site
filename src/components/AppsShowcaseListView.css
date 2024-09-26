@@ -1,0 +1,41 @@
+
+.list-view {
+    box-shadow: 0 62.5px 125px -25px rgba(50, 50, 73, 0.5), 0 37.5px 75px -37.5px rgba(0, 0, 0, 0.6);
+    max-height: 637.14px;
+    touch-action: cross-slide-y;
+    /* average color for the box shadow */
+    /* the center is darker to make the gap stand out less. */
+    background-image: radial-gradient(#3c3c41, #A6A6AA); 
+    
+}
+
+.list-view li {
+    margin: 0.25rem 0;
+    position: relative;
+}
+
+
+.list-view li:first-child,
+.list-view li:last-child {
+    margin: 0 0;
+}
+
+.list-view li:first-child {
+    mask-image: linear-gradient(to bottom, transparent, white 2%);
+}
+
+.list-view li:last-child {
+    mask-image: linear-gradient(to bottom, white 96%, transparent);
+}
+
+.list-view::-webkit-scrollbar {
+    display: none;
+}
+
+.h-list-view {
+    height: 95%;
+}
+
+.fade-left {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.116), white );
+}
