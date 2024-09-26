@@ -24,7 +24,7 @@ import webflowIcon from "../assets/my-skills-icons/webflow.png";
 import muiIcon from "../assets/my-skills-icons/mui.png";
 import "./SkillsTicker.css";
 import { useState, useRef, useEffect } from "react";
-import useMeasure from "react-use-measure";
+import useMeasure, { RectReadOnly } from "react-use-measure";
 // load icons
 // move an icon until it disappears
 // track whenever icon escapes screen fully
@@ -113,11 +113,7 @@ interface SkillsTickerIconData {
   name: string;
   desc: string;
   pause: boolean;
-  offsetY: number;
-}
-
-interface SkillsTickerData {
-    offsetY: number;
+  pageRect: RectReadOnly;
 }
 
 const lerp = (from: number, to: number, weight: number) => {
@@ -143,17 +139,20 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
   name,
   desc,
   pause,
-  offsetY
+  pageRect
 }) => {
   const [showTooltip, set] = useState(false);
   const [ref, rect] = useMeasure();
   const [tooltipRef, tooltipRect] = useMeasure();
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrollTop, setScrollTop] = useState(0);
 
   const handleMouseMove = (e: MouseEvent) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
+    setScrollTop(window.scrollY);
   };
+
 
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
@@ -183,26 +182,29 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
           className={`max-w-2xl fixed bg-black p-4 pointer-events-none ticker-rev ${pause ? 'ticker-rev-paused' : ''}`}
           style={{
             visibility: (showTooltip ? 'visible' : 'hidden'),
-            left: 0 + mousePosition.x,
+            left: mousePosition.x - 50,
             top: remap(
               mousePosition.y,
               rect.top,
-              Math.min(rect.bottom, rect.top + 160), //not all images are equally sized, so the top and bottom rect difference is high 
-              0 - tooltipRect.height + offsetY,
-              160 - tooltipRect.height + offsetY
-            ),
+              rect.top + 160, //not all images are equally sized, so the top and bottom rect difference is high 
+              // the below code is me trying to get the mouse position correct
+              // even useMeasure doesn't help me with what I'm trying to do!
+              // 
+              0 + pageRect.top + remap(scrollTop, 687, 1800, -220, 860),
+              160 + pageRect.top + remap(scrollTop, 687, 1800, -220, 860),
+            ) - 100,
           }}
         >
           <p className="text-lg font-pixel font-bold">{name}</p>
           <p className="text-sm max-w-full text-wrap">
-            {desc}
+            {desc} 
           </p>
         </div>
     </>
   );
 };
 
-const SkillsTicker: React.FC<SkillsTickerData> = (props: {offsetY: number}) => {
+const SkillsTicker: React.FC<RectReadOnly> = (props: RectReadOnly) => {
 
   const [isHoveringTicker, setHoveringTicker] = useState(false);
 
@@ -224,7 +226,7 @@ const SkillsTicker: React.FC<SkillsTickerData> = (props: {offsetY: number}) => {
               name={names[index]}
               desc={descriptions[index]}
               pause={isHoveringTicker}
-              offsetY={props.offsetY}
+              pageRect={props}
             />
           ))}
           {icons.map((icon, index) => (
@@ -233,7 +235,7 @@ const SkillsTicker: React.FC<SkillsTickerData> = (props: {offsetY: number}) => {
               name={names[index]}
               desc={descriptions[index]}
               pause={isHoveringTicker}
-              offsetY={props.offsetY}
+              pageRect={props}
             />
           ))}
         </div>

@@ -12,10 +12,13 @@ function App() {
   return (
     <>
       <main className="main-content bg-off-white">
-        {/* <Overview /> */}
+        <Overview />
         <div className='in-front relative z-10 h-screen'>
-          {/* <IntroWhoAmI /> */}
+          <IntroWhoAmI />
+        </div>
+        <div className='h-screen'>
           <AppsShowcase/>
+
         </div>
       </main>
     </>

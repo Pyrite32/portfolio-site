@@ -3,7 +3,7 @@ import "./IntroWhoAmI.css";
 import useMeasure from 'react-use-measure';
 
 const IntroWhoAmI = () => {
-  const [ introRef, { top }] = useMeasure();
+  const [ introRef, rect ] = useMeasure();
 
   return (
     <section ref={introRef} className="intro bg-black grid-bg-intro h-full flex flex-col justify-center">
@@ -50,7 +50,7 @@ const IntroWhoAmI = () => {
         </div>
       </div>
       <div className="intro-skills h-skills-ticker w-11/12 mb-5 mx-auto">
-        <SkillsTicker offsetY={top} />
+        <SkillsTicker {...rect} />
       </div>
     </section>
   );

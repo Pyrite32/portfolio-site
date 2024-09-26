@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./AppsShowcase.css";
-import AppsShowcaseRoulette from '../components/AppsShowcaseRoulette';
-import AppsShowcaseListView from '../components/AppsShowcaseListView';
+import AppsShowcaseRoulette from "../components/AppsShowcaseRoulette";
+import AppsShowcaseListView from "../components/AppsShowcaseListView";
 
 const AppsShowcase = () => {
   const [rouletteView, setRouletteView] = useState(true);
+
 
   return (
     <section className="h-full">
@@ -75,7 +76,11 @@ const AppsShowcase = () => {
             </div>
             <div className="px-10 pt-10 pr-0 h-full flex flex-row">
               <div className="w-1/2">
-                {rouletteView ? <AppsShowcaseRoulette /> : <AppsShowcaseListView />}
+                {rouletteView ? (
+                  <AppsShowcaseRoulette />
+                ) : (
+                  <AppsShowcaseListView />
+                )}
               </div>
               <div className="flex flex-col justify-center items-center w-1/2">
                 <div className="flex flex-col items-center justify-center w-9/12">
@@ -84,14 +89,15 @@ const AppsShowcase = () => {
                     A CATALOG OF PROJECTS RANGING FROM FRONTEND to BACKEND to
                     GAME DEVELOPMENT.
                   </p>
-                  <div className="mt-5 toggle-display-type"
-                                        onClick={() => setRouletteView(val => !val)}
+                  <div
+                    className="mt-5 toggle-display-type"
+                    onClick={() => setRouletteView((val) => !val)}
                   >
                     <input
                       type="checkbox"
                       className="toggle-display-type__checkbox"
                       checked={!rouletteView}
-                      onChange={() => setRouletteView(val => !val)}
+                      onChange={() => setRouletteView((val) => !val)}
                     />
                     <div className="toggle-display-type__switch" />
                   </div>

@@ -60,7 +60,7 @@
 }
 
 .toggle-display-type__checkbox:checked + .toggle-display-type__switch {
-    background: green;
+    background: theme('colors.yellow');
 }
 
 .toggle-display-type__checkbox:checked + .toggle-display-type__switch::before {
