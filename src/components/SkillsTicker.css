@@ -31,8 +31,8 @@
   animation-timing-function: linear;
   -webkit-animation-name: ticker-rev;
   animation-name: ticker-rev;
-  -webkit-animation-duration: 30s;
-  animation-duration: 30s;
+  -webkit-animation-duration: 50s;
+  animation-duration: 50s;
 }
 
 .ticker-wrap .ticker {
@@ -44,8 +44,8 @@
   animation-timing-function: linear;
   -webkit-animation-name: ticker;
   animation-name: ticker;
-  -webkit-animation-duration: 30s;
-  animation-duration: 30s;
+  -webkit-animation-duration: 50s;
+  animation-duration: 50s;
 }
 
 .ticker:hover {

@@ -1,0 +1,39 @@
+.w-art-header {
+    width: 90%;
+}
+
+.h-art-header {
+    height: 16%;
+}
+
+.category-bar {
+    opacity: 0.8;
+}
+
+.category-bar:hover {
+    opacity:1.0;
+}
+
+.category-bar:hover .bar-unselected {
+    transform: scaleY(0.3);
+    background-color: theme('colors.teal');
+}
+
+.category-bar:hover .bar-selected {
+}
+
+.bar-selected,
+.bar-unselected {
+    transform-origin: bottom left;
+    transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045) transform;
+    transition-property: transform;
+}
+
+.bar-selected {
+    transform: scaleY(1);
+}
+
+
+.bar-unselected {
+    transform: scaleY(0.2);
+}

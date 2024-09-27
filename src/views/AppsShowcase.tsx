@@ -2,21 +2,21 @@ import { useState } from "react";
 import "./AppsShowcase.css";
 import AppsShowcaseRoulette from "../components/AppsShowcaseRoulette";
 import AppsShowcaseListView from "../components/AppsShowcaseListView";
+import { useSpring, animated } from "@react-spring/web";
 
 const AppsShowcase = () => {
   const [rouletteView, setRouletteView] = useState(true);
 
-
   return (
-    <section className="h-full">
+    <section className="h-screen">
       <header className="md:px-32 px-4 pt-6 leading-3 md:text-right text-center">
-        <h1 className="md:text-7xl text-6xl font-unbounded text-black p-0 m-0 ">
+        <h1 className="md:text-7xl text-6xl font-unbounded text-black p-0 m-0">
           Apps I’ve Built
         </h1>
-        <p className="hidden md:block font-black text-fuschia text-2xl p-0 m-0 relative bottom-2 -z-10 tracking-tighter">
+        <p className="hidden md:block font-black text-fuschia text-2xl p-0 m-0 relative bottom-2 tracking-tighter">
           ///////////////////////////////////////////////////////////////
         </p>
-        <p className="block md:hidden font-black text-fuschia text-2xl p-0 m-0 relative bottom-2 -z-10 tracking-tighter">
+        <p className="block md:hidden font-black text-fuschia text-2xl p-0 m-0 relative bottom-2 tracking-tighter">
           ////////////////////////////////////////////////////
         </p>
       </header>
@@ -89,15 +89,20 @@ const AppsShowcase = () => {
                     A CATALOG OF PROJECTS RANGING FROM FRONTEND to BACKEND to
                     GAME DEVELOPMENT.
                   </p>
+                  <animated.div className="mt-5">
+                    {rouletteView ? "Roulette" : "List"} View
+                  </animated.div>
                   <div
-                    className="mt-5 toggle-display-type"
+                    className=" toggle-display-type"
                     onClick={() => setRouletteView((val) => !val)}
                   >
                     <input
                       type="checkbox"
                       className="toggle-display-type__checkbox"
                       checked={!rouletteView}
-                      onChange={() => setRouletteView((val) => !val)}
+                      onChange={() => {
+                        setRouletteView((val) => !val);
+                      }}
                     />
                     <div className="toggle-display-type__switch" />
                   </div>

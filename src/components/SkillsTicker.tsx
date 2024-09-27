@@ -174,22 +174,28 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
         onMouseEnter={() => set(true)}
         onMouseLeave={() => set(false)}
         style={{
-          opacity: showTooltip ? "50%" : "100%",
+          opacity: showTooltip ? "100%" : "50%",
         }}
       />
         <div
           ref={tooltipRef}
-          className={`max-w-2xl fixed bg-black p-4 pointer-events-none ticker-rev ${pause ? 'ticker-rev-paused' : ''}`}
+          className={`max-w-2xl fixed z-10 bg-black p-4 pointer-events-none ticker-rev ${pause ? 'ticker-rev-paused' : ''}`}
           style={{
             visibility: (showTooltip ? 'visible' : 'hidden'),
+            opacity: "100%",
             left: mousePosition.x - 50,
+            // using the top and bottom of the icon, map mousePosition to 'top' pixels.
             top: remap(
               mousePosition.y,
               rect.top,
               rect.top + 160, //not all images are equally sized, so the top and bottom rect difference is high 
               // the below code is me trying to get the mouse position correct
               // even useMeasure doesn't help me with what I'm trying to do!
-              // 
+              // 687 and 1800 are the extreme portions where:
+                // 687 - breakpoint where the scrollbar becomes visible
+                // 1800 - breakpoint where the scrollbar leaves your view
+                // -220 - the 'top' pixels number needed to make the tooltip look good at the 687 breakpoint
+                // -860 - the 'top' pixels number needed to make the tooltip look good at the 1800 breakpoint 
               0 + pageRect.top + remap(scrollTop, 687, 1800, -220, 860),
               160 + pageRect.top + remap(scrollTop, 687, 1800, -220, 860),
             ) - 100,
