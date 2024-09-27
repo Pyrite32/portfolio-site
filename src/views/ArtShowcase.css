@@ -37,3 +37,7 @@
 .bar-unselected {
     transform: scaleY(0.2);
 }
+
+.h-almost {
+    height: 91.666667%;
+}

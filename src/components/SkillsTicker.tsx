@@ -233,6 +233,7 @@ const SkillsTicker: React.FC<RectReadOnly> = (props: RectReadOnly) => {
               desc={descriptions[index]}
               pause={isHoveringTicker}
               pageRect={props}
+              key={`ticker${index}`}
             />
           ))}
           {icons.map((icon, index) => (
@@ -242,6 +243,7 @@ const SkillsTicker: React.FC<RectReadOnly> = (props: RectReadOnly) => {
               desc={descriptions[index]}
               pause={isHoveringTicker}
               pageRect={props}
+              key={`ticker2${index}`}
             />
           ))}
         </div>

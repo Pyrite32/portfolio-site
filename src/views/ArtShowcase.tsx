@@ -1,3 +1,5 @@
+
+
 import { CSSProperties, useEffect, useState } from "react";
 import "./ArtShowcase.css";
 import {
@@ -6,6 +8,7 @@ import {
   useTransition,
   animated,
   AnimatedProps,
+  config,
 } from "@react-spring/web";
 
 const categories = [
@@ -15,54 +18,32 @@ const categories = [
   { name: "Misc. Pieces" },
 ];
 
-const ArtGalleryCategory = (props: {
-  clickCallback: (index: number) => void;
-  index: number;
-  active: boolean;
-  style: AnimatedProps<{ transform: string; backgroundColor: string }>;
-}) => {
-  console.log(props.index);
-  return (
-    <animated.div
-      key={`$as-bar{index}`}
-      className="w-1/4 h-full text-center relative z-10 cursor-pointer category-bar"
-      onClick={() => props.clickCallback(props.index)}
-    >
-      <animated.div
-        className={`absolute w-full h-full -z-10`}
-        style={{
-          backgroundColor: props.style.backgroundColor,
-          transform: props.style.transform,
-        }}
-      />
-      <animated.p className="mt-2 h-full align-text-bottom text-lg font-pixel text-black leading-4">
-        {"a"}
-      </animated.p>
-    </animated.div>
-  );
-};
-
 const ArtGallery = () => {
   const [categoryIndex, setCategoryIndex] = useState(0);
 
-  const [transitionBars, transitionBarsApi] = useSprings(categories.length, (i) => ({
-    from: {
-      transform: "scaleY(1.0)",
-      backgroundColor: "red",
-    },
-  }));
-
-  const handleClick = (index: number) => {
-    setCategoryIndex(index);
-  };
+  const [springs, categoryApi] = useSprings(
+    categories.length,
+    (i) => ({
+      from: {
+        transformOrigin: "bottom center",
+        transform: "scaleY(0.0)",
+        backgroundColor: "black",
+      },
+      to: {
+        transform: i === categoryIndex ? "scaleY(1.0)" : "scaleY(0.2)",
+        backgroundColor: i === categoryIndex ? "#DFA100" : "black",
+      },
+      config: config.stiff,
+    }),
+    [categoryIndex]
+  );
 
   useEffect(() => {
-    console.log("start!");
-    transitionBarsApi.start();
-  }, [categoryIndex]);
+    categoryApi.start();
+  });
 
   return (
-    <section className="h-screen">
+    <section className="h-screen art-showcase flex flex-col justify-stretch gap-0">
       <header className="w-art-header h-art-header md:pl-16 px-4 pt-6 leading-3 md:text-left text-center flex flex-row justify-between">
         <div>
           <h1 className="md:text-7xl text-6xl font-unbounded text-black p-0 m-0 ">
@@ -83,18 +64,43 @@ const ArtGallery = () => {
             </svg>
           </div>
           <div className="flex flex-row w-full items-start gap-2 h-16">
-            {transitionBars((style, i) => {
-              const props = {
-                clickCallback: handleClick,
-                index: i,
-                active: categoryIndex === i,
-                style: style,
-              };
-              return <ArtGalleryCategory {...props} />;
-            })}
+            {springs.map((props, i) => (
+              <animated.div
+                key={`as-bar${i}`}
+                className="w-1/4 h-full text-center relative z-10 cursor-pointer category-bar"
+                onClick={() => setCategoryIndex(i)}
+              >
+                <animated.div
+                  className={`absolute w-full h-full -z-10 bg-yellow`}
+                  style={props}
+                />
+                <animated.p className="mt-2 h-full align-text-bottom text-lg font-pixel text-black leading-4">
+                  {categories[i].name}
+                </animated.p>
+              </animated.div>
+            ))}
           </div>
         </div>
       </header>
+      <div className="w-11/12 mx-auto h-3/4 relative">
+        <div className="__CANVAS_DECO absolute w-full h-full w-deco hidden md:flex justify-between pointer-events-none">
+          <svg width="50" height="715">
+            <line className="deco-line" x1="1" y1="0" x2="40" y2="0" />
+            <line className="deco-line" x1="1" y1="0" x2="0" y2="40" />
+            <line className="deco-line-sm" x1="1" y1="140" x2="25" y2="140" />
+            <line className="deco-line-sm" x1="1" y1="570" x2="25" y2="570" />
+          </svg>
+          <svg width="50" height="715">
+            <line className="deco-line-sm" x1="25" y1="140" x2="50" y2="140" />
+            <line className="deco-line-sm" x1="25" y1="570" x2="50" y2="570" />
+            <line className="deco-line-sm" x1="49" y1="690" x2="49" y2="650" />
+            <line className="deco-line-sm" x1="10" y1="690" x2="50" y2="690" />
+          </svg>
+        </div>
+        <div className="h-full">
+          hi
+        </div>
+      </div>
     </section>
   );
 };

@@ -14,11 +14,11 @@ function App() {
   return (
     <>
       <main className="main-content bg-off-white">
-        {/* <Overview />
+        <Overview />
         <IntroWhoAmI />
-        <AppsShowcase/> */}
-        {/* <ArtShowcase/> */}
-        <Test />
+        <AppsShowcase/>
+        <ArtShowcase/>
+        {/* <Test /> */}
       </main>
     </>
   )
