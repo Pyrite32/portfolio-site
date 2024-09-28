@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # ART!!!
-src/assets/art-gallery/*
+public/art-gallery/*

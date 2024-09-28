@@ -10,6 +10,9 @@ import {
   AnimatedProps,
   config,
 } from "@react-spring/web";
+import { RowsPhotoAlbum } from "react-photo-album";
+
+import Photos from './pictures';
 
 const categories = [
   { name: "Character Design" },
@@ -98,7 +101,7 @@ const ArtGallery = () => {
           </svg>
         </div>
         <div className="h-full">
-          hi
+          <RowsPhotoAlbum photos={Photos.PixelArtPhotos}/>
         </div>
       </div>
     </section>
