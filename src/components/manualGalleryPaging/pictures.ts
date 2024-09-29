@@ -1,75 +1,67 @@
-import { Photo } from "react-photo-album";
+const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
 
 export const charDesign = [
     {
-        asset: "cat-character-design-orig.png",
-        width: 4000,
-        height: 2500,
+        asset: "cat-character-design-orig.jpg",
+        width: 1080,
+        height: 675,
         alt: "Cat Character Design"
     },
     {
-        asset: "cyberpsychosis-design.png",
-        width: 3000,
-        height: 1906,
+        asset: "cyberpsychosis-design.jpg",
+        width: 1080,
+        height: 675,
         alt: "Cat Character Design"
     },
     {
-        asset: "depparin.png",
-        width: 2500,
-        height: 1700,
+        asset: "depparin.jpg",
+        width: 1080,
+        height: 675,
         alt: "Cat Character Design"
     },
     {
-        asset: "jump-the-gun-char.png",
-        width: 1600,
-        height: 1200,
+        asset: "jump-the-gun-char.jpg",
+        width: 1080,
+        height: 810,
         alt: "Cat Character Design"
     },
     {
-        asset: "karin-old.png",
-        width: 3000,
-        height: 1943,
+        asset: "karin-old.jpg",
+        width: 1080,
+        height: 675,
         alt: "Cat Character Design"
     },
     {
-        asset: "lanterns.png",
-        width: 643,
-        height: 657,
+        asset: "lanterns.jpg",
+        width: 675,
+        height: 675,
         alt: "Cat Character Design"
     },
     {
-        asset: "luka-character-design-orig.png",
-        width: 4000,
-        height: 2500,
+        asset: "luka-character-design-orig.jpg",
+        width: 1080,
+        height: 675,
         alt: "Cat Character Design"
     },
     {
-        asset: "luka-turnaround-360.png",
-        width: 4468,
-        height: 1250,
-        alt: "Cat Character Design"
-    },
-    {
-        asset: "ritual-character-designs.png",
+        asset: "luka-turnaround-360.jpg",
         width: 1920,
-        height: 689,
+        height: 575,
         alt: "Cat Character Design"
     },
     {
-        asset: "sisters-character-design-orig.png",
-        width: 4000,
-        height: 2500,
+        asset: "ritual-character-designs.jpg",
+        width: 1920,
+        height: 675,
         alt: "Cat Character Design"
     },
-].map(
-    ({asset, alt, width, height}) => 
-        ({
-            src: `../assets/art-gallery/char-design/${asset}`,
-            alt,
-            width,
-            height
-    }) as Photo,
-);
+    {
+        asset: "sisters-character-design-orig.jpg",
+        width: 1080,
+        height: 675,
+        alt: "Cat Character Design"
+    },
+]
 
 export const pixelArt = [
     {
@@ -132,15 +124,7 @@ export const pixelArt = [
         height: 95,
         alt: "Cat Character Design"
     },
-].map(
-    ({asset, alt, width, height}) => 
-        ({
-            src: `../assets/art-gallery/pixel-art/${asset}`,
-            alt,
-            width,
-            height
-    }) as Photo,
-);
+]
 
 export const ui = [
     {
@@ -179,15 +163,7 @@ export const ui = [
         height: 620,
         alt: "Cat Character Design"
     },
-].map(
-    ({asset, alt, width, height}) => 
-        ({
-            src: `../assets/art-gallery/ui/${asset}`,
-            alt,
-            width,
-            height
-    }) as Photo,
-);
+]
 
 export const personalPieces = [
     {
@@ -250,15 +226,7 @@ export const personalPieces = [
         height: 2733,
         alt: "Cat Character Design"
     },
-].map(
-    ({asset, alt, width, height}) => 
-        ({
-            src: `../assets/art-gallery/misc/${asset}`,
-            alt,
-            width,
-            height
-    }) as Photo,
-);
+]
 
 export default {
     CharacterDesignPhotos : charDesign,

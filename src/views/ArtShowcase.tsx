@@ -9,10 +9,11 @@ import {
   animated,
   AnimatedProps,
   config,
-} from "@react-spring/web";
-import { RowsPhotoAlbum } from "react-photo-album";
-
-import Photos from './pictures';
+} from "@react-spring/web"; 
+import CharacterDesignPager from "../components/manualGalleryPaging/characterDesignPager";
+import PixelArtPager from "../components/manualGalleryPaging/pixelArtPager";
+import GraphicDesignPager from "../components/manualGalleryPaging/GraphicDesignPager";
+import MiscDesignPager from "../components/manualGalleryPaging/MiscDesignPager";
 
 const categories = [
   { name: "Character Design" },
@@ -100,8 +101,11 @@ const ArtGallery = () => {
             <line className="deco-line-sm" x1="10" y1="690" x2="50" y2="690" />
           </svg>
         </div>
-        <div className="h-full">
-          <RowsPhotoAlbum photos={Photos.PixelArtPhotos}/>
+        <div className="PHOTOS h-full w-full max-w-full max-h-full">
+              {categoryIndex === 0 && <CharacterDesignPager index={0} />}
+              {categoryIndex === 1 && <PixelArtPager index={0} />}
+              {categoryIndex === 2 && <GraphicDesignPager index={0} />}
+              {categoryIndex === 3 && <MiscDesignPager index={0} />}
         </div>
       </div>
     </section>

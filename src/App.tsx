@@ -7,6 +7,7 @@ import IntroWhoAmI from './views/IntroWhoAmI'
 import AppsShowcase from "./views/AppsShowcase"
 import ArtShowcase from "./views/ArtShowcase"
 import Test from "./views/test"
+import Photos from './components/manualGalleryPaging/pictures'
 
 function App() {
 
@@ -17,8 +18,11 @@ function App() {
         <Overview />
         <IntroWhoAmI />
         <AppsShowcase/>
-        <ArtShowcase/>
-        {/* <Test /> */}
+        <ArtShowcase/> */
+        <div>
+          <div>
+          </div>
+        </div>
       </main>
     </>
   )
