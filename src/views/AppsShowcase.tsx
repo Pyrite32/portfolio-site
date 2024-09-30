@@ -8,7 +8,7 @@ const AppsShowcase = () => {
   const [rouletteView, setRouletteView] = useState(true);
 
   return (
-    <section className="h-screen">
+    <section className="mt-32 h-screen">
       <header className="md:px-32 px-4 pt-6 leading-3 md:text-right text-center">
         <h1 className="md:text-7xl text-6xl font-unbounded text-black p-0 m-0">
           Apps I’ve Built
