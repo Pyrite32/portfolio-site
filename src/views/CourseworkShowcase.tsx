@@ -1,4 +1,4 @@
-import CourseworkTile, { BorderWeights } from '../components/CourseworkTile';
+import CourseworkTile, { CardStyle } from '../components/CourseworkTile';
 import './CourseworkShowcase.css'
 
 const courses = [
@@ -60,54 +60,62 @@ const courses = [
   }
 ]
 
-const lgBorderStyles: Array<BorderWeights> = [
+const lgCardStyles: Array<CardStyle> = [
   {
-    top: 1,
-    left: 1,
-    right: 1,
-    bottom: 1
+    topBorderWidth: 1,
+    leftBorderWidth: 1,
+    rightBorderWidth: 1,
+    bottomBorderWidth: 1,
+    openDirection: 'right',
   },
   {
-    top: 1,
-    left: 0,
-    right: 0,
-    bottom: 1
+    topBorderWidth: 1,
+    leftBorderWidth: 0,
+    rightBorderWidth: 0,
+    bottomBorderWidth: 1,
+    openDirection: 'right',
   },
   {
-    top: 1,
-    left: 1,
-    right: 0,
-    bottom: 1
+    topBorderWidth: 1,
+    leftBorderWidth: 1,
+    rightBorderWidth: 0,
+    bottomBorderWidth: 1,
+    openDirection: 'left',
   },
   {
-    top: 1,
-    left: 1,
-    right: 1,
-    bottom: 1
+    topBorderWidth: 1,
+    leftBorderWidth: 1,
+    rightBorderWidth: 1,
+    bottomBorderWidth: 1,
+    openDirection: 'left',
   },
   {
-    top: 0,
-    left: 1,
-    right: 1,
-    bottom: 1
+    topBorderWidth: 0,
+    leftBorderWidth: 1,
+    rightBorderWidth: 1,
+    bottomBorderWidth: 1,
+    openDirection: 'right',
   },
   {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 1
+    topBorderWidth: 0,
+    leftBorderWidth: 0,
+    rightBorderWidth: 0,
+    bottomBorderWidth: 1,
+    openDirection: 'right',
   },
   {
-    top: 0,
-    left: 1,
-    right: 0,
-    bottom: 1
+    topBorderWidth: 0,
+    leftBorderWidth: 1,
+    rightBorderWidth: 0,
+    bottomBorderWidth: 1,
+    openDirection: 'left',
   },
   {
-    top: 0,
-    left: 1,
-    right: 1,
-    bottom: 1
+    topBorderWidth: 0,
+    leftBorderWidth: 1,
+    rightBorderWidth: 1,
+    bottomBorderWidth: 1,
+    openDirection: 'left',
   },
 ]
 
@@ -119,14 +127,18 @@ const CourseworkShowcase = () => {
           Coursework
         </h1>
       </header>
-      <div className='big-container mx-auto w-9/12 bg-yellow relative z-10 h-4/6'>
-        <div className='py-20 px-6 big-container__layout flex flex-wrap w-10/12 mx-auto h-full gap-0'>
-          {courses.map((item, index) => (
-            <CourseworkTile 
-            data={item} 
-            borderStyle={lgBorderStyles[index]} 
-            />
-          ))}
+      <div className='big-container mx-auto w-10/12 h-min bg-off-white relative z-10'>
+        <div className='py-20 px-6 w-8/12 mx-auto h-full gap-0'>
+          <p className='text-fuschia font-serif leading-none'>&lt;Coursework&gt;</p>
+          <div className='big-container__layout flex flex-wrap '>
+            {courses.map((item, index) => (
+              <CourseworkTile 
+              data={item} 
+              cardStyle={lgCardStyles[index]} 
+              />
+            ))}
+          </div>
+          <p className='text-fuschia font-serif text-right leading-none'>&lt;/Coursework&gt;</p>
         </div>
       </div>
     </section>

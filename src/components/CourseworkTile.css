@@ -3,5 +3,21 @@
     max-width: 25%;
 }
 
-.pt-1\/2 {
+.max-h-svg {
+    max-height: 50%;
+}
+
+.pixelBold {
+    font-family: 'Yamaha\ EBM7\ Bold', Courier, monospace;
+}
+
+.open-card__right {
+    background-color: theme('colors.black');
+    width: calc(200% + 3px);
+}
+
+.open-card__left {
+    background-color: theme('colors.black');
+    left: -100%;
+    width: calc(200% + 3px);
 }

@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <main className="main-content bg-off-white">
+      <main className="main-content bg-light-gray">
         <Overview />
         <IntroWhoAmI />
         <AppsShowcase/>

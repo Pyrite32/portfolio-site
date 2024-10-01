@@ -44,6 +44,14 @@
   }
 
   @font-face {
+    font-family: 'YAMAHA EBM7 BOLD';
+    src: url('./assets/fonts/YAMAHA-EBM7-BOLD.ttf');
+    font-weight: bold;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
     font-family: 'Mondwest';
     src: url('./assets/fonts/Mondwest-regular.ttf');
     font-weight: normal;

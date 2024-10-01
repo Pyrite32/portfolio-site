@@ -30,6 +30,7 @@ export default {
         unbounded: ["Unbounded", "Arial", "fantasy"],
         nova: ["NovaFlat Regular", "Arial", "sans-serif"],
         pixel: ["Yamaha EBM7 Regular", "fantasy"],
+        pixbold: ["YAMAHA EBM7 BOLD", "fantasy"],
         outline: ["Outline", "fantasy"],
       },
       extend: {
