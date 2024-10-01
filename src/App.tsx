@@ -19,10 +19,6 @@ function App() {
         <IntroWhoAmI />
         <AppsShowcase/>
         <ArtShowcase/> */
-        <div>
-          <div>
-          </div>
-        </div>
       </main>
     </>
   )

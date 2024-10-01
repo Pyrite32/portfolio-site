@@ -19,7 +19,7 @@ import MiscDesignPager from "../components/manualGalleryPaging/MiscDesignPager";
 const categories = [
   { name: "Character Design" },
   { name: "Pixel Art" },
-  { name: "UX Design" },
+  { name: "Graphic Design" },
   { name: "Misc. Pieces" },
 ];
 
@@ -89,10 +89,18 @@ const ArtGallery = () => {
       </header>
       <div className="w-11/12 mx-auto h-3/4 relative">
         <div className="PHOTOS w-full max-w-full relative">
-              {categoryIndex === 0 && <CharacterDesignPager index={0} />}
-              {categoryIndex === 1 && <PixelArtPager index={0} />}
-              {categoryIndex === 2 && <GraphicDesignPager index={0} />}
-              {categoryIndex === 3 && <MiscDesignPager index={0} />}
+          <div style={{display: (categoryIndex === 0 ? 'block' : 'none' )}}>
+              <CharacterDesignPager index={0} />
+          </div>
+          <div style={{display: (categoryIndex === 1 ? 'block' : 'none' )}}>
+              <PixelArtPager index={0} />
+          </div>
+          <div style={{display: (categoryIndex === 2 ? 'block' : 'none' )}}>
+              <GraphicDesignPager index={0} />
+          </div>
+          <div style={{display: (categoryIndex === 3 ? 'block' : 'none' )}}>
+              <MiscDesignPager index={0} />
+          </div>
         </div>
       </div>
     </section>

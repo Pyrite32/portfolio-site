@@ -4,83 +4,48 @@ import { useEffect, useRef } from 'react';
 import 'photoswipe/photoswipe.css';
 import './ImageGrid.css'
 
-import Image from './Image'
+import AnimatedImage from './AnimatedImage'
 import { useSpring, animated} from '@react-spring/web';
 
-export const charDesignImages = {
-    cat: {
-        asset: "cat-character-design-orig.jpg",
-        width: 1080,
-        height: 675,
-        scale: 1.0,
+export const graphicDesignImages = {
+    ada1: {
+        asset: "ada1.png",
+        width: 850,
+        height: 474,
         alt: "Cat Character Design"
     },
-    cyberpsychosis: {
-        asset: "cyberpsychosis-design.jpg",
-        width: 1080,
-        height: 675,
-        scale: 1.0,
+    ada2: {
+        asset: "ada2.png",
+        width: 1025,
+        height: 585,
         alt: "Cat Character Design"
     },
-    depparin: {
-        asset: "depparin.jpg",
-        width: 1080,
-        height: 675,
-        scale: 1.0,
+    chromeclash1: {
+        asset: "chromeclash.png",
+        width: 888,
+        height: 452,
         alt: "Cat Character Design"
     },
-    jumpTheGun: {
-        asset: "jump-the-gun-char.jpg",
-        width: 1080,
-        height: 810,
-        scale: 1.0,
+    chromeclash2: {
+        asset: "chromeclash1.png",
+        width: 1070,
+        height: 580,
         alt: "Cat Character Design"
     },
-    karinOld: {
-        asset: "karin-old.jpg",
-        width: 1080,
-        height: 675,
-        scale: 1.0,
+    flyer: {
+        asset: "flyer-design.png",
+        width: 2550,
+        height: 3300,
         alt: "Cat Character Design"
     },
-    lanterns: {
-        asset: "lanterns.jpg",
-        width: 675,
-        height: 675,
-        scale: 1.0,
-        alt: "Cat Character Design"
-    },
-    luka: {
-        asset: "luka-character-design-orig.jpg",
-        width: 1080,
-        height: 675,
-        scale: 1.0,
-        alt: "Cat Character Design"
-    },
-    luka360: {
-        asset: "luka-turnaround-360.jpg",
-        width: 1920,
-        height: 575,
-        scale: 1.0,
-        alt: "Cat Character Design"
-    },
-    ritual: {
-        asset: "ritual-character-designs.jpg",
-        width: 1920,
-        height: 675,
-        scale: 1.0,
-        alt: "Cat Character Design"
-    },
-    sisters: {
-        asset: "sisters-character-design-orig.jpg",
-        width: 1080,
-        height: 675,
-        scale: 1.0,
+    welderly: {
+        asset: "welderly.png",
+        width: 904,
+        height: 620,
         alt: "Cat Character Design"
     },
 }
 
-const AnimatedImage = animated(Image);
 
 const GraphicDesignPager = (props: {index : number}) => {
 
@@ -107,44 +72,22 @@ const GraphicDesignPager = (props: {index : number}) => {
 
     return (
         <>
-        <div id="graphic-design__gallery" className='w-10/12 mx-auto pswp-gallery image-grid__row px-2 flex justify-between'>
-           <div className='image-grid__column-double'>
-                <AnimatedImage data={charDesignImages.ritual} style={spring} />
-                <AnimatedImage data={charDesignImages.luka360} style={spring} />
-                <div className='flex flex-row'>
-                    <AnimatedImage data={charDesignImages.depparin} style={spring} />
-                    <AnimatedImage data={charDesignImages.sisters} style={spring} />
-                </div>
+        <div id="graphic-design__gallery" className='w-10*/12 mx-auto pswp-gallery image-grid__row px-2'>
+           <div className='image-grid__column'>
+                <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.chromeclash1} style={spring} />
+                <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.chromeclash2} style={spring} />
            </div>
            <div className='image-grid__column'>
-                <AnimatedImage data={charDesignImages.luka} style={spring} />
-                <AnimatedImage data={charDesignImages.cat} style={spring} />
-                <AnimatedImage data={charDesignImages.karinOld} style={spring} />
-
+                <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.ada1} style={spring} />
+                <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.ada2} style={spring} />
            </div>
            <div className='image-grid__column'>
-                <AnimatedImage data={charDesignImages.jumpTheGun} style={spring} />
-                <AnimatedImage data={charDesignImages.cyberpsychosis} style={spring} />
-                <div className='w-1/2'>
-                    <AnimatedImage data={charDesignImages.lanterns} style={spring} />
-                </div>
+                <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.flyer} style={spring} />
+           </div>
+           <div className='image-grid__column'>
+                <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.welderly} style={spring} />
            </div>
         </div>
-        {/* <div className="w-full flex flex-row gap-3 max-h-full">
-            <div className="flex flex-col w-fit gap-3">
-                <img src={sourceOf(charDesignImages.catronTalloume)} style={scaled(charDesignImages.catronTalloume, 0.5)} alt=""/>
-                <img src={sourceOf(charDesignImages.lukaTalloume)} style={scaled(charDesignImages.catronTalloume, 0.5)} alt=""/>
-            </div>
-            <div className="flex flex-col w-fit gap-3">
-                <img src={sourceOf(charDesignImages.sistersTrio)} style={scaled(charDesignImages.catronTalloume, 0.5)} alt=""/>
-                <img src={sourceOf(charDesignImages.depparin)} style={scaled(charDesignImages.catronTalloume, 0.5)} alt=""/>
-            </div>
-            <div className="flex flex-col w-fit gap-3">
-                <img src={sourceOf(charDesignImages.lukaRig)} style={scaled(charDesignImages.catronTalloume, 0.5)} alt=""/>
-                <img src={sourceOf(charDesignImages.karinOriginal)} style={scaled(charDesignImages.catronTalloume, 0.5)} alt=""/>
-                <img src={sourceOf(charDesignImages.ritualOfRuinLineup)} style={scaledXY(charDesignImages.catronTalloume, 0.43, 0.8)} alt=""/>
-            </div>
-        </div> */}
         </>
     )
 }

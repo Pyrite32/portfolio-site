@@ -6,7 +6,6 @@ interface ImageData {
   width: number;
   height: number;
   alt: string;
-  scale: number,
 }
 
 const sourceOf = (data: ImageData) => {
@@ -21,22 +20,22 @@ const scaledXY = (data: ImageData, scaleX: number, scaleY: number) => {
     return { maxWidth: (data.width * scaleX), maxHeight: (data.height * scaleY)}
 }
 
-const Image = (props: {data: ImageData, style: SpringValues}) => {
+const Image = (props: {sourceFolder: string, data: ImageData, style: SpringValues}) => {
   const randID = useId();
 
   return (
     <animated.a
-      href={`art-gallery/char-design/${props.data.asset}`}
+      href={`art-gallery/${props.sourceFolder}/${props.data.asset}`}
       data-pswp-width={props.data.width}
       data-pswp-height={props.data.height}
-      key={"charDesignGallery-" + randID}
+      key={`${props.sourceFolder}-` + randID}
       target="_blank"
       rel="noreferrer"
       className="w-full"
       style={props.style}
     >
       <animated.img
-        src={`art-gallery/char-design/${props.data.asset}`}
+        src={`art-gallery/${props.sourceFolder}/${props.data.asset}`}
         alt={props.data.alt}
         className="w-full"
       />
@@ -44,4 +43,4 @@ const Image = (props: {data: ImageData, style: SpringValues}) => {
   );
 };
 
-export default Image;
+export default animated(Image);

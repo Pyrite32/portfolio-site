@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import 'photoswipe/photoswipe.css';
 import './ImageGrid.css'
 
-import Image from './Image'
+import AnimatedImage from './AnimatedImage'
 import { useSpring, animated} from '@react-spring/web';
 
 export const charDesignImages = {
@@ -80,8 +80,6 @@ export const charDesignImages = {
     },
 }
 
-const AnimatedImage = animated(Image);
-
 const CharacterDesignPager = (props: {index : number}) => {
 
     const spring = useSpring({
@@ -109,24 +107,23 @@ const CharacterDesignPager = (props: {index : number}) => {
         <>
         <div id="char-design__gallery" className='w-10/12 mx-auto pswp-gallery image-grid__row px-2 flex justify-between'>
            <div className='image-grid__column-double'>
-                <AnimatedImage data={charDesignImages.ritual} style={spring} />
-                <AnimatedImage data={charDesignImages.luka360} style={spring} />
-                <div className='flex flex-row'>
-                    <AnimatedImage data={charDesignImages.depparin} style={spring} />
-                    <AnimatedImage data={charDesignImages.sisters} style={spring} />
+                <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.ritual} style={spring} />
+                <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.luka360} style={spring} />
+                <div className='flex flex-row gap-2'>
+                    <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.depparin} style={spring} />
+                <AnimatedImage sourceFolder={"char-design"}data={charDesignImages.karinOld} style={spring} />
                 </div>
            </div>
            <div className='image-grid__column'>
-                <AnimatedImage data={charDesignImages.luka} style={spring} />
-                <AnimatedImage data={charDesignImages.cat} style={spring} />
-                <AnimatedImage data={charDesignImages.karinOld} style={spring} />
-
+                <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.luka} style={spring} />
+                <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.cat} style={spring} />
+                <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.sisters} style={spring} />
            </div>
            <div className='image-grid__column'>
-                <AnimatedImage data={charDesignImages.jumpTheGun} style={spring} />
-                <AnimatedImage data={charDesignImages.cyberpsychosis} style={spring} />
+                <AnimatedImage sourceFolder={"char-design"}data={charDesignImages.jumpTheGun} style={spring} />
+                <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.cyberpsychosis} style={spring} />
                 <div className='w-1/2'>
-                    <AnimatedImage data={charDesignImages.lanterns} style={spring} />
+                    <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.lanterns} style={spring} />
                 </div>
            </div>
         </div>
