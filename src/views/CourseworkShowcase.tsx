@@ -7,7 +7,6 @@ const courses = [
     name: "Operating Systems",
     desc: "Piping, networking, multithreading, OS principles, and modification of a custom Unix kernel in C.",
     icon: "operatingSystems",
-    customPaddingTop: 0,
     customWidth: 48,
   },
   {
@@ -15,7 +14,6 @@ const courses = [
     name: "Performant Programming",
     desc: "Programming with Rust and Python. Learned Rust + Unity bindings, multithreading, parallel processing, and async I/O",
     icon: "performantProgramming",
-    customPaddingTop: 0,
     customWidth: 46,
   },
   {
@@ -23,7 +21,6 @@ const courses = [
     name: "Data Structures & Algorithms",
     desc: "Custom implementation of various data structures and sorting/pathing algorithms in C++. Learned how to create linked lists, stacks, queues, BSTs, ASTs, graphs, and implement BFS, DFS, Djikstra, and A* algorithms",
     icon: "dsa",
-    customPaddingTop: 0,
     customWidth: 58,
   },
   {
@@ -31,7 +28,6 @@ const courses = [
     name: "Computational Linear Algebra",
     desc: "Vector and matrix math with MATLAB. Learned eigenvalues, echelon forms, vector spaces, and vector transformations.",
     icon: "linearAlgebra",
-    customPaddingTop: 0,
     customWidth: 44,
   },
   {
@@ -39,7 +35,6 @@ const courses = [
     name: "Programming Language Concepts",
     desc: "OOP, regex, and creation of a custom programming language using Java. Learned regex, parsing, lexing, and object oriented programming.",
     icon: "plc",
-    customPaddingTop: 0,
     customWidth: 48,
   },
   {
@@ -47,7 +42,6 @@ const courses = [
     name: "UX Design",
     desc: "Learned how to implement UX through Figma. Learned about user stories, responsive design, principles of user-friendly design, and color theory.",
     icon: "ux",
-    customPaddingTop: 0,
     customWidth: 48,
   },
   {
@@ -55,7 +49,6 @@ const courses = [
     name: "Undergraduate Course Assistant",
     desc: "Assisted students in building cut-out animations with ToonBoom Harmony. Performed weekly assessment of student submissions with SyncSketch.",
     icon: "ta",
-    customPaddingTop: 0,
     customWidth: 76,
   },
   {
@@ -63,7 +56,6 @@ const courses = [
     name: "Cross Cultural Engineering & Design",
     desc: "Collaborated in a team of six in Kyoto, Japan to create a unity game centered around disaster prevention.",
     icon: "japan",
-    customPaddingTop: 0,
     customWidth: 48,
   }
 ]

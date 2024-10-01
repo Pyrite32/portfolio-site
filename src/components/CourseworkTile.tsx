@@ -15,7 +15,6 @@ export interface CourseworkData {
     name: string,
     desc: string,
     icon: string,
-    customPaddingTop: number,
     customWidth: number
 }
 const iconToSVG: Map<string, string> = new Map([
@@ -45,7 +44,7 @@ const CourseworkTitle = (props: {data: CourseworkData, borderStyle: string}) => 
                         width={props.data.customWidth}
                         src={iconToSVG.get(props.data.icon)}
                         alt=""
-                        style={{paddingTop: props.data.customPaddingTop }} />
+                        />
                 </div>
                 <div className="text-center text-2xl">
                     {props.data.code}
