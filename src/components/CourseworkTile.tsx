@@ -9,6 +9,7 @@ import performantProgrammingIcon from "../assets/course-icons/performantProgramm
 import plcIcon from "../assets/course-icons/plc.svg";
 import taIcon from "../assets/course-icons/ta.svg";
 import uxIcon from "../assets/course-icons/ux.svg";
+import { TypeAnimation } from "react-type-animation";
 
 export interface CourseworkData {
   code: string;
@@ -64,9 +65,14 @@ const CourseworkTitle = (props: {
                     <h2>{props.data.code}</h2>
                     <h2 className="text-right">{props.data.name}</h2>
                 </div>
-                <p className="mt-4 overflow-ellipsis font-pixel text-xl text-light-fuschia">
-                    {props.data.desc}
-                </p>
+                <span className="mt-4 overflow-ellipsis font-pixel text-xl text-light-fuschia">
+                    <TypeAnimation 
+                        sequence={[
+                            props.data.desc
+                        ]}
+                        speed={99}
+                    />
+                </span>
             </div>
         </div>
       }
