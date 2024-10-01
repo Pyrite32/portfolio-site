@@ -14,7 +14,9 @@ export interface CourseworkData {
     code: string,
     name: string,
     desc: string,
-    icon: string
+    icon: string,
+    customPaddingTop: number,
+    customWidth: number
 }
 const iconToSVG: Map<string, string> = new Map([
     ['dsa', dsaIcon],
@@ -37,15 +39,20 @@ const CourseworkTitle = (props: {data: CourseworkData, borderStyle: string}) => 
         onMouseLeave={() => setHovered(false)}
         className="max-w-1/4 bg-white px-7 py-5 font-pixel flex flex-col items-center justify-center"
         >
-                <div className="mx-auto w-max flex-grow">
-                    <img className="my-auto align-middle pt-12 bg-cover" width="48" src={iconToSVG.get(props.data.icon)}  style={{filter: "brightness(4%)"}} alt="" />
+                <div className="mx-auto w-max flex-grow pt-4">
+                    <img 
+                        className="my-auto align-middle bg-cover"
+                        width={props.data.customWidth}
+                        src={iconToSVG.get(props.data.icon)}
+                        alt=""
+                        style={{paddingTop: props.data.customPaddingTop }} />
                 </div>
-                {/* <div className="text-center text-2xl">
+                <div className="text-center text-2xl">
                     {props.data.code}
                 </div>
                 <div className="text-center text-2xl">
                     {props.data.name}
-                </div> */}
+                </div>
         </div>
     )
 }
