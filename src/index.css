@@ -51,6 +51,14 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'Outline';
+    src: url('./assets/fonts/BungeeOutline-Regular.ttf');
+    font-weight: normal;
+    font-display: swap;
+    font-style: normal;
+  }
+
 
 }
 
