@@ -17,6 +17,14 @@ export interface CourseworkData {
     icon: string,
     customWidth: number
 }
+
+export interface BorderWeights {
+    top: 1 | 0,
+    left: 1 | 0,
+    right: 1 | 0,
+    bottom: 1 | 0,
+}
+
 const iconToSVG: Map<string, string> = new Map([
     ['dsa', dsaIcon],
     ['japan', japanIcon],
@@ -29,11 +37,18 @@ const iconToSVG: Map<string, string> = new Map([
 ]);
 
 
-const CourseworkTitle = (props: {data: CourseworkData, borderStyle: string}) => {
+const CourseworkTitle = (props: {data: CourseworkData, borderStyle: BorderWeights}) => {
     const [hovered, setHovered] = useState(false);
     
     return (
         <div 
+        style={{
+            border: "1px solid #A6A6A6",
+            borderTopWidth: props.borderStyle.top,
+            borderLeftWidth: props.borderStyle.left,
+            borderRightWidth: props.borderStyle.right,
+            borderBottomWidth: props.borderStyle.bottom,
+        }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="max-w-1/4 bg-white px-7 py-5 font-pixel flex flex-col items-center justify-center"

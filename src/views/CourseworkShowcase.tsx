@@ -1,4 +1,4 @@
-import CourseworkTile from '../components/CourseworkTile';
+import CourseworkTile, { BorderWeights } from '../components/CourseworkTile';
 import './CourseworkShowcase.css'
 
 const courses = [
@@ -60,6 +60,57 @@ const courses = [
   }
 ]
 
+const lgBorderStyles: Array<BorderWeights> = [
+  {
+    top: 1,
+    left: 1,
+    right: 1,
+    bottom: 1
+  },
+  {
+    top: 1,
+    left: 0,
+    right: 0,
+    bottom: 1
+  },
+  {
+    top: 1,
+    left: 1,
+    right: 0,
+    bottom: 1
+  },
+  {
+    top: 1,
+    left: 1,
+    right: 1,
+    bottom: 1
+  },
+  {
+    top: 0,
+    left: 1,
+    right: 1,
+    bottom: 1
+  },
+  {
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 1
+  },
+  {
+    top: 0,
+    left: 1,
+    right: 0,
+    bottom: 1
+  },
+  {
+    top: 0,
+    left: 1,
+    right: 1,
+    bottom: 1
+  },
+]
+
 const CourseworkShowcase = () => {
   return (
     <section className="h-screen mt-20">
@@ -71,7 +122,10 @@ const CourseworkShowcase = () => {
       <div className='big-container mx-auto w-9/12 bg-yellow relative z-10 h-4/6'>
         <div className='py-20 px-6 big-container__layout flex flex-wrap w-10/12 mx-auto h-full gap-0'>
           {courses.map((item, index) => (
-            <CourseworkTile data={item} borderStyle='' />
+            <CourseworkTile 
+            data={item} 
+            borderStyle={lgBorderStyles[index]} 
+            />
           ))}
         </div>
       </div>
