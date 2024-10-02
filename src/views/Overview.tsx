@@ -28,7 +28,10 @@ const Overview = () => {
             <div className="relative flex items-end justify-between mx-auto top-32 pointer-events-none w-11/12 z-10 p-10">
                 <div className="flex flex-col leading-tight text-white max-h-max relative bottom-4 lg:mt-0 ">
                     <h1 className="font-unbounded overviewTextBp:text-8xl text-7xl ">
-                        <PopInText sentence={"Patrick Keefe"} delay={50} />
+                        <PopInText 
+                        sentence={"Patrick Keefe"} 
+                        delay={50} 
+                        />
                     </h1>
                     <p className="text-off-white">
                         <PopInText sentence={"FRONT-END ENGINEER - GAME DEVELOPER - ARTIST"} delay={500} />
