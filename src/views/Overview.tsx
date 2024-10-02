@@ -4,6 +4,7 @@ import Burger from "../components/Burger";
 import TornPaperEdge from "../assets/torn-paper-edge.png";
 import TornPaper from "../assets/torn-paper.png";
 import Profile from "../assets/profile-placeholder.png";
+import { PopInText } from "../components/PopInText";
 
 const Overview = () => {
   return (
@@ -25,12 +26,12 @@ const Overview = () => {
           <span className="clip-paper grid-bg clip-paper-small bg-black absolute block mega:hidden" />
           <div className="__MOVE_DOWN__ absolute top-32 w-full">
             <div className="relative flex items-end justify-between mx-auto top-32 pointer-events-none w-11/12 z-10 p-10">
-                <div className="flex flex-col leading-tight text-white max-h-max mt-64 lg:mt-0 ">
+                <div className="flex flex-col leading-tight text-white max-h-max relative bottom-4 lg:mt-0 ">
                     <h1 className="font-unbounded overviewTextBp:text-8xl text-7xl ">
-                        Patrick Keefe
+                        <PopInText sentence={"Patrick Keefe"} delay={50} />
                     </h1>
                     <p className="text-off-white">
-                        FRONT-END ENGINEER - GAME DEVELOPER - ARTIST
+                        <PopInText sentence={"FRONT-END ENGINEER - GAME DEVELOPER - ARTIST"} delay={500} />
                     </p>
                 </div>
                 <img

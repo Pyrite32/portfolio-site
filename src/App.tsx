@@ -9,6 +9,7 @@ import ArtShowcase from "./views/ArtShowcase"
 import CourseworkShowcase from './views/CourseworkShowcase/CourseworkShowcase'
 import RepeatingTextTicker from './components/RepeatingTextTicker'
 import ContactMe from './views/ContactMe'
+import { PopInText } from './components/PopInText'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <main className="main-content bg-light-gray">
+        {/* <PopInText sentence={"hi my name is patrick"} /> */}
         <Overview />
         <IntroWhoAmI />
         <AppsShowcase/>
