@@ -1,5 +1,5 @@
 .contact-me-height {
-    height: 50vh;
+    height: 65vh;
 }
 
 .anaglyph {
@@ -56,13 +56,30 @@
     font-family: theme('fontFamily.pixbold');
     color: theme('colors.off-white');
     font-size: larger;
+    opacity: 0.5;
 }
 
-.form-grouping input:placeholder-shown + .IN {
+.form-grouping input::placeholder {
     opacity: 0.5;
-    display: none;
+}
+
+.form-grouping textarea::placeholder {
+    opacity: 0.5;
 }
 
 .contact-me-form label[for="customMessage"] {
     top: 85%;
 }
+
+.h-max-form-height {
+    max-height: 55%;
+}
+
+.submit-form__button-ready {
+    /* background-color: theme('colors.yellow'); */
+}
+
+.submit-form__button-inactive {
+    /* background-color: theme('colors.gray'); */
+    pointer-events: none;
+} 
