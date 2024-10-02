@@ -1,0 +1,13 @@
+@keyframes text-ticker-scroll {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: calc(-100% - 2em);
+    }
+}
+
+.ticker-scroll {
+    animation: text-ticker-scroll 10s linear infinite;
+}

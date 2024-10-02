@@ -1,11 +1,11 @@
 import useMeasure from 'react-use-measure';
 import CourseworkTile from '../../components/CourseworkTile';
 import './CourseworkShowcase.css'
-import { useEffect, useState } from 'react';
-import remap from '../../ts/remap';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import courses from '../../ts/data/Courses'
+import { useEffect, useRef, useState } from 'react';
 import { lgCardStyles } from '../../ts/data/CardStyles';
+import remap from '../../ts/remap';
+import courses from '../../ts/data/Courses'
+import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 
 const MovingText = () => {
@@ -34,9 +34,12 @@ const MovingText = () => {
     };
   }, []);
 
+  let rightAmnt = remap(scrollY, 0, windowSize, 300, -1200)
+  if (rightAmnt == null) rightAmnt = 0;
+
   return (
     <h1 id="gargantuanText" className="absolute text-gargantuan font-outline text-black p-0 m-0"
-    style={{right: remap(scrollY, 0, windowSize, 300, -1200)}}>
+    style={{right: rightAmnt}}>
       COURSEWORK
     </h1>
   );
@@ -45,7 +48,7 @@ const MovingText = () => {
 const CourseworkShowcase = () => {
 
   return (
-    <section className="h-screen mt-20">
+    <section className="h-screen mt-20 mb-32">
       <header className="md:px-32 px-4 pt-6 h-32 leading-3 md:text-right text-center relative">
         <MovingText />
       </header>
@@ -57,6 +60,7 @@ const CourseworkShowcase = () => {
               <CourseworkTile 
               data={item} 
               cardStyle={lgCardStyles[index]} 
+              key={`courseTile-${index}`}
               />
             ))}
           </div>
