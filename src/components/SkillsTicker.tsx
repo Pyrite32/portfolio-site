@@ -25,6 +25,7 @@ import muiIcon from "../assets/my-skills-icons/mui.png";
 import "./SkillsTicker.css";
 import { useState, useRef, useEffect } from "react";
 import useMeasure, { RectReadOnly } from "react-use-measure";
+import remap from '../ts/remap'
 // load icons
 // move an icon until it disappears
 // track whenever icon escapes screen fully
@@ -116,23 +117,7 @@ interface SkillsTickerIconData {
   pageRect: RectReadOnly;
 }
 
-const lerp = (from: number, to: number, weight: number) => {
-  return from + (to - from) * weight;
-};
 
-const inverseLerp = (from: number, to: number, val: number) => {
-  return (val - from) / (to - from);
-};
-
-const remap = (
-  val: number,
-  istart: number,
-  istop: number,
-  ostart: number,
-  ostop: number
-) => {
-  return lerp(ostart, ostop, inverseLerp(istart, istop, val));
-};
 
 const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
   src,

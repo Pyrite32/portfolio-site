@@ -10,22 +10,9 @@ import plcIcon from "../assets/course-icons/plc.svg";
 import taIcon from "../assets/course-icons/ta.svg";
 import uxIcon from "../assets/course-icons/ux.svg";
 import { TypeAnimation } from "react-type-animation";
+import CourseworkData from "../ts/CourseworkData";
+import CardStyle from "../ts/CardStyle";
 
-export interface CourseworkData {
-  code: string;
-  name: string;
-  desc: string;
-  icon: string;
-  customWidth: number;
-}
-
-export interface CardStyle {
-  topBorderWidth: 1 | 0;
-  leftBorderWidth: 1 | 0;
-  rightBorderWidth: 1 | 0;
-  bottomBorderWidth: 1 | 0;
-  openDirection: "left" | "right";
-}
 
 const iconToSVG: Map<string, string> = new Map([
   ["dsa", dsaIcon],

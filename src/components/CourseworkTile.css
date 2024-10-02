@@ -18,6 +18,6 @@
 
 .open-card__left {
     background-color: theme('colors.black');
-    left: -100%;
+    left: calc(-100% - 3px);
     width: calc(200% + 3px);
 }

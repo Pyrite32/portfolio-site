@@ -6,9 +6,7 @@ import Overview from "./views/Overview"
 import IntroWhoAmI from './views/IntroWhoAmI' 
 import AppsShowcase from "./views/AppsShowcase"
 import ArtShowcase from "./views/ArtShowcase"
-import Test from "./views/test"
-import Photos from './components/manualGalleryPaging/pictures'
-import CourseworkShowcase from './views/CourseworkShowcase'
+import CourseworkShowcase from './views/CourseworkShowcase/CourseworkShowcase'
 
 function App() {
 
