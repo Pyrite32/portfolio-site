@@ -1,0 +1,68 @@
+.contact-me-height {
+    height: 50vh;
+}
+
+.anaglyph {
+    --text: attr(data-text);
+}
+
+.anaglyph::after {
+    content: var(--text);
+    position: absolute;
+    right: -2px;
+    color: theme('colors.fuschia');
+    z-index: -10;
+    width: max-content;
+}
+
+.anaglyph::before {
+    content: var(--text);
+    position: absolute;
+    right: 2px;
+    color: theme('colors.teal');
+    z-index: -10;
+    width: max-content;
+}
+
+.h-form-height {
+    height: 70%;
+}
+
+.contact-me-form input,
+.contact-me-form textarea {
+    background-color: theme('colors.dark-gray');
+    font-size: 2rem;
+    font-family: theme('fontFamily.serif');
+    padding-left: 1.5rem;
+    padding-right: 5%;
+    color: theme('colors.teal');
+}
+
+.contact-me-form textarea {
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+.contact-me-form label {
+    visibility: hidden;
+}
+
+.contact-me-form label {
+    visibility: visible;
+    position: absolute;
+    z-index: 20;
+    left: 46%;
+    top: 57%;
+    font-family: theme('fontFamily.pixbold');
+    color: theme('colors.off-white');
+    font-size: larger;
+}
+
+.form-grouping input:placeholder-shown + .IN {
+    opacity: 0.5;
+    display: none;
+}
+
+.contact-me-form label[for="customMessage"] {
+    top: 85%;
+}

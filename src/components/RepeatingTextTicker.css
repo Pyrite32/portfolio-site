@@ -1,10 +1,10 @@
 @keyframes text-ticker-scroll {
     0% {
-        left: 0;
+        left: 0%;
     }
 
     100% {
-        left: calc(-100% - 2em);
+        left: -50%;
     }
 }
 

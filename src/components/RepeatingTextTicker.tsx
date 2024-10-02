@@ -17,7 +17,6 @@ const RepeatingTextTicker = (props: { text: string }) => {
       };
     }
     resultArray[resultArray.length - 1] = props.text;
-    console.log("MAKE TEXT with content length: " + resultArray.length);
     return {
       numCopies: resultArray.length,
       content: resultArray.join(""),
@@ -44,13 +43,6 @@ const RepeatingTextTicker = (props: { text: string }) => {
         window.innerWidth > tickerWidth() + EXTRAPOLATE_WIDTH_PX ||
         window.innerWidth < tickerWidth() - wordWidth() - EXTRAPOLATE_WIDTH_PX
       ) {
-        console.log(
-          "window width is: " +
-            window.innerWidth +
-            " and ticker length is " +
-            (tickerWidth() + EXTRAPOLATE_WIDTH_PX)
-        );
-        //console.log(getTickerText());
         setTickerText(getTickerText());
       }
     };
@@ -60,15 +52,21 @@ const RepeatingTextTicker = (props: { text: string }) => {
 
   return (
     <div className=" text-lg bg-off-white">
-        <span
-            ref={tickerMeasure}
-            className="w-min whitespace-nowrap h-min text-clip overflow-hidden ticker-text relative"
-        >
-            <p className="relative ticker-scroll text-black font-pixbold text-lg inline">
-                &nbsp;{tickerText.content}&nbsp;
-                {tickerText.content}
-            </p>
-        </span>
+      <div
+        ref={wordMeasure}
+        className="absolute h-0 font-pixbold text-lg invisible"
+      >
+        {props.text}&nbsp;
+      </div>
+      <div
+        ref={tickerMeasure}
+        className="w-min whitespace-nowrap h-min text-clip overflow-hidden ticker-text relative"
+      >
+        <p className="relative ticker-scroll text-black font-pixbold text-lg inline">
+          &nbsp;{tickerText.content}&nbsp;
+          {tickerText.content}
+        </p>
+      </div>
     </div>
   );
 };

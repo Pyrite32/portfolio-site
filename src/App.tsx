@@ -8,6 +8,7 @@ import AppsShowcase from "./views/AppsShowcase"
 import ArtShowcase from "./views/ArtShowcase"
 import CourseworkShowcase from './views/CourseworkShowcase/CourseworkShowcase'
 import RepeatingTextTicker from './components/RepeatingTextTicker'
+import ContactMe from './views/ContactMe'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <ArtShowcase/>
         <CourseworkShowcase />
         <RepeatingTextTicker text="END OF SITE"/>
+        <ContactMe/>
       </main>
     </>
   )
