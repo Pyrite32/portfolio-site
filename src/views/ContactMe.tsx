@@ -1,5 +1,5 @@
 import "./ContactMe.css";
-import Eagle from "../assets/eagle.png";
+import Eagle from "../assets/eagle2.png";
 import { useEffect, useRef, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 

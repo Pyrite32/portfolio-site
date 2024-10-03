@@ -29,7 +29,7 @@ const Overview = () => {
           <span className="clip-paper grid-bg clip-paper-small bg-black absolute block mega:hidden" />
           <div className="__MOVE_DOWN__ absolute top-32 w-full">
             <div className="relative flex items-end justify-between mx-auto top-32 pointer-events-none w-11/12 z-10 p-10">
-                <div className="flex flex-col leading-tight text-white max-h-max relative bottom-4 lg:mt-0 ">
+                <div className="flex flex-col leading-tight text-white max-h-max relative bottom-32 lg:mt-0 ">
                     <h1 className="font-unbounded overviewTextBp:text-8xl text-7xl ">
                         <PopInText delay={50}>Patrick Keefe</PopInText>
                     </h1>
