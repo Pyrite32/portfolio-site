@@ -14,7 +14,9 @@ const IntroWhoAmI = () => {
           <div className="mr-auto flex flex-col w-9/12 gap-6">
             <div className="flex flex-col gap-3  mx-auto">
               <h1 className="text-7xl text-white">
-              <PopInText sentence={"Patrick is a Unicorn"} delay={50} requireVisibility={true}/>
+              <PopInText delay={50} requireVisibility={true}>
+                Patrick is a Unicorn
+              </PopInText>
               </h1>
               <p className="w-10/12 leading-snug text-2xl text-white">
                 As a unicorn, I have passion for building beautiful and

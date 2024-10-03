@@ -12,12 +12,7 @@ import {
 import { useEffect, useId, useRef, useState } from "react";
 
 import "./PopInText.css";
-
-const ease10 = (val10: number, by: number) => {
-  const PHI = 1.618033988749;
-  const exponent = Math.pow(PHI, 1 / (1 - by)) - Math.pow(PHI, 1 / (1 + by));
-  return Math.pow(val10, exponent);
-};
+import ease10 from '../ts/ease10'
 
 const animFrom = {
     transform: 1.0,
@@ -30,38 +25,40 @@ const animTo = {
 }
 
 export const PopInText = (props: {
-  sentence: string;
+  children: string;
   delay?: number;
   baseDuration?: number;
   durationPerWord?: number;
   requireVisibility?: boolean;
 }) => {
-  const wordArray = useRef<Array<string>>(props.sentence.split(" "));
+  const wordArray = useRef<Array<string>>(props.children.split(" "));
   const id = useId();
 
   const [ref, inView] = useInView();
+
+  function nextDelayValue(i: number) {
+    return (props.baseDuration || 400) + (i * (props.durationPerWord || 100))
+  }
 
   const [springs, api] = useSprings(
     wordArray.current.length,
     (i) => ({
       from: animFrom,
       config: {
-        duration:
-          (props.baseDuration || 500) + i * (props.durationPerWord || 100),
         easing: (x) => ease10(x, 0.15),
         ...config.stiff,
+        duration: nextDelayValue(i)
       },
-      delay: props.delay || 200,
     }),
     [props]
   );
 
   useEffect(() => {
-    wordArray.current = props.sentence.split(" ");
+    wordArray.current = props.children.split(" ");
     if (!props.requireVisibility) {
         api.start(animTo);
     }
-  }, [props.sentence]);
+  }, [props.children]);
 
   useEffect(() => {
     if (inView && props.requireVisibility) {

@@ -3,6 +3,7 @@
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
+    height: 120%;
 }
 
 .word {
