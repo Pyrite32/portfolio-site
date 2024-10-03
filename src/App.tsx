@@ -6,7 +6,7 @@ import Overview from "./views/Overview"
 import IntroWhoAmI from './views/IntroWhoAmI' 
 import AppsShowcase from "./views/AppsShowcase"
 import ArtShowcase from "./views/ArtShowcase"
-import CourseworkShowcase from './views/CourseworkShowcase/CourseworkShowcase'
+import CourseworkShowcase from './views/CourseworkShowcase'
 import RepeatingTextTicker from './components/RepeatingTextTicker'
 import ContactMe from './views/ContactMe'
 import { PopInText } from './components/PopInText'

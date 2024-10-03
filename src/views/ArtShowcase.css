@@ -41,3 +41,7 @@
 .h-almost {
     height: 5%;
 }
+
+.max-w-200\% {
+    max-width: 125rem;
+}

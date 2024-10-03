@@ -71,3 +71,7 @@
     position: absolute;
     visibility: hidden;
 }
+
+.max-w-200\% {
+    max-width: 125rem;
+}

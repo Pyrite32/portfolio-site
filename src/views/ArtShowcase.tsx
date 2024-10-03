@@ -11,10 +11,12 @@ import {
   config,
 } from "@react-spring/web"; 
 
-import CharacterDesignPager from "../components/manualGalleryPaging/characterDesignPager";
-import PixelArtPager from "../components/manualGalleryPaging/pixelArtPager";
+
 import GraphicDesignPager from "../components/manualGalleryPaging/GraphicDesignPager";
 import MiscDesignPager from "../components/manualGalleryPaging/MiscDesignPager";
+import PopIn from "../components/PopIn";
+import CharacterDesignPager from "../components/manualGalleryPaging/CharacterDesignPager";
+import PixelArtPager from "../components/manualGalleryPaging/PixelArtPager";
 
 const categories = [
   { name: "Character Design" },
@@ -48,7 +50,8 @@ const ArtGallery = () => {
   });
 
   return (
-    <section className="mt-32 h-screen art-showcase flex flex-col justify-stretch gap-0">
+    <PopIn requireVisibility={true} topOffset={"3rem"}>
+    <section className="relative mt-3 mx-auto 2 h-screen art-showcase flex flex-col justify-stretch gap-0 mb-72 max-w-200%">
       <header className="w-art-header h-art-header md:pl-16 px-4 pt-6 leading-3 md:text-left text-center flex flex-row justify-between">
         <div>
           <h1 className="md:text-7xl text-6xl font-unbounded text-black p-0 m-0 ">
@@ -104,6 +107,7 @@ const ArtGallery = () => {
         </div>
       </div>
     </section>
+    </PopIn>
   );
 };
 

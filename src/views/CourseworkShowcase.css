@@ -11,5 +11,9 @@
 }
 
 .big-container {
-    clip-path: path("M 154 2 H 1920 V 1080 H 2 V 125 Z");
+    clip-path: path("M 154 2 H 5000 V 3000 H 2 V 125 Z");
+}
+
+.max-w-200\% {
+    max-width: 125rem;
 }
