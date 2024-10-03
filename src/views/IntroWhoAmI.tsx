@@ -1,3 +1,4 @@
+import PopIn from "../components/PopIn";
 import { PopInText } from "../components/PopInText";
 import SkillsTicker from "../components/SkillsTicker";
 import "./IntroWhoAmI.css";
@@ -18,16 +19,22 @@ const IntroWhoAmI = () => {
                 Patrick is a Unicorn
               </PopInText>
               </h1>
-              <p className="w-10/12 leading-snug text-2xl text-white">
-                As a unicorn, I have passion for building beautiful and
-                functional digital experiences. I bridge the gap between
-                aesthetics and technology, ensuring every project I am involved
-                in is
-              </p>
+              <PopIn
+                requireVisibility={true}
+              >
+                <p className="w-10/12 leading-snug text-2xl text-white">
+                  As a unicorn, I have passion for building beautiful and
+                  functional digital experiences. I bridge the gap between
+                  aesthetics and technology, ensuring every project I am involved
+                  in is
+                </p>
+              </PopIn>
             </div>
-            <p className="font-pixel text-2xl">
-              <span className="text-yellow">$</span> list skills
-            </p>
+            <PopIn requireVisibility={true}>
+              <p className="font-pixel text-2xl">
+                <span className="text-yellow">$</span> list skills
+              </p>
+            </PopIn>
           </div>   
         </div>
         <div className="w-11/12 mr-auto text-right">

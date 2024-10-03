@@ -39,10 +39,14 @@ const Overview = () => {
                         </PopInText>
                     </p>
                 </div>
-                <img
-                src={Profile}
-                className="box-border relative hidden lg:block origin-bottom scale-125"
-                />
+                <PopIn
+                  topOffset={"2rem"}
+                >
+                  <img
+                    src={Profile}
+                    className="hidden lg:block origin-bottom scale-125"
+                  />
+                </PopIn>
             </div>
           </div>
           <img
