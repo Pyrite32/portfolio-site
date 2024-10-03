@@ -65,8 +65,8 @@ const IntroWhoAmI = () => {
   //
 
   return (
-    <section ref={introRef} className="intro bg-black grid-bg-intro h-screen flex flex-col justify-center">
-      <div className="intro-main flex-grow flex flex-col h-2/4 gap-28 justify-center">
+    <section ref={introRef} className="intro bg-black grid-bg-intro h-screen pt-24">
+      <div className="intro-main flex flex-col h-1/3 gap-28 justify-center">
           <div className="mx-auto w-9/12 gap-6">
             <div className="mx-auto">
               <h1 className="text-7xl text-white">
@@ -76,40 +76,44 @@ const IntroWhoAmI = () => {
               </h1>
               <PopIn
                 requireVisibility={true}
+                waitForMs={6500}
+                topOffset={"3rem"}
               >
-                <p className="w-10/12 leading-snug text-2xl mt-2 text-white">
+                <p className="w-10/12 leading-snug text-3xl mt-2 text-off-white">
                   As a unicorn, I have passion for building beautiful and
                   functional digital experiences. I bridge the gap between
                   aesthetics and technology, ensuring every project I am involved
-                  in is
+                  in is able to deliver in all aspects of user experience.
                 </p>
               </PopIn>
             </div>
-            <PopIn requireVisibility={true}>
-              <p className="font-pixel text-2xl">
+            <PopIn requireVisibility={true} waitForMs={7500}>
+              <p className="font-pixel text-2xl mt-8">
                 <span className="text-yellow">$</span> list skills
               </p>
             </PopIn>
           </div>   
         </div>
         <div className="w-11/12 mr-auto text-right">
-          <ul className="font-pixel text-2xl">
-            <li>
-              <button>
-                <p className="font-pixel text-2xl">code</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <p className="font-pixel text-2xl">art</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <p className="font-pixel text-2xl">ux</p>
-              </button>
-            </li>
-          </ul>
+          <PopIn requireVisibility={true} waitForMs={9000}>
+            <ul className="font-pixel text-2xl">
+              <li>
+                <button>
+                  <p className="font-pixel text-2xl">code</p>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <p className="font-pixel text-2xl">art</p>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <p className="font-pixel text-2xl">ux</p>
+                </button>
+              </li>
+            </ul>
+          </PopIn>
       </div>
       <div className="intro-skills h-skills-ticker w-11/12 mb-5 mx-auto">
         <SkillsTicker {...rect} />

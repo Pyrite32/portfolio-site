@@ -43,7 +43,7 @@ const PopIn = (props : PopInProps) => {
         if (props.requireVisibility) {
             if (inView && playedAnim.current == false) {
                 playedAnim.current = true;
-                api.start(toAnimation);
+                setTimeout(() => api.start(toAnimation), props.waitForMs || 0);
             }
         }
         else {
