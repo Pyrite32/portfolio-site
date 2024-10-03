@@ -5,7 +5,7 @@ https://codepen.io/P1N2O/pen/pyBNzX
 */
 
 
-.rainbow-button {
+.rainbow-glow {
     background: linear-gradient(to top left,
     transparent,
     #B6666520,
@@ -26,9 +26,17 @@ https://codepen.io/P1N2O/pen/pyBNzX
     border-width: 3px;
     transition-property: border;
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    /* Imported from old RainbowAura component */
+    display: inline-block;
+    border-radius: 9999px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    bottom: 0.125rem;
 }
 
-.rainbow-button:hover {
+.rainbow-glow:hover {
     border-color: #ffffaa20;
 }
 

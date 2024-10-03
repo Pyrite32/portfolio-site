@@ -83,6 +83,7 @@ main {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   backface-visibility: hidden;
+  scroll-behavior: smooth;
 }
 
 h1 {

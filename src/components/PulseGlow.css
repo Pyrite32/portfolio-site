@@ -1,0 +1,28 @@
+.pulse-glow {
+    display: inline-block;
+    background: linear-gradient(
+        to left,
+        transparent 10%,
+        #aaaabb50 11%,
+        transparent
+    );
+    background-size: 800% 100%;
+    background-position: 0% 0%;
+    border-radius: 0.125rem;
+    text-shadow: #0000 1px 0 10px;
+    transition: text-shadow 0.2s ease-out;
+}
+
+@keyframes pulse-glow {
+    from {
+        background-position: 100% 0%;
+    }
+    to {
+        background-position: 0% 0%;
+    }
+}
+
+.pulse-glow:hover {
+    animation: pulse-glow 1s ease;
+    text-shadow: #aab 1px 0 10px;
+}
