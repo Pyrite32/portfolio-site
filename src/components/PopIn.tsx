@@ -1,5 +1,5 @@
 import { animated, config, useInView, useSpring } from "@react-spring/web";
-import { ReactNode, useEffect, useId, useRef } from "react";
+import { ReactNode, useEffect, useId, useRef, useState } from "react";
 import ease10 from "../ts/ease10";
 import { Property } from 'csstype'
 
@@ -20,6 +20,7 @@ const PopIn = (props : PopInProps) => {
 
     const playedAnim = useRef(false);
     const [ref, inView] = useInView();
+    const [canClick, setCanClick] = useState(false);
 
     const toAnimation = {
         to: {
@@ -36,7 +37,9 @@ const PopIn = (props : PopInProps) => {
           config: {
             easing: (x) => ease10(x, 0.15),
             ...(props.springConfig || config.slow),
+            
           },
+          onRest: () => setCanClick(true)
         }));
     
       useEffect(() => {
@@ -54,7 +57,7 @@ const PopIn = (props : PopInProps) => {
     
     return (
         <animated.span ref={ref} style={{
-            position: "relative", ...spring
+            position: "relative", pointerEvents: (canClick ? 'all' : 'none'), ...spring
         }} >
             {props.children}
         </animated.span>
