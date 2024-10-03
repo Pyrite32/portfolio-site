@@ -1,5 +1,5 @@
 import { animated, config, useInView, useSpring } from "@react-spring/web";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useId, useRef } from "react";
 import ease10 from "../ts/ease10";
 import { Property } from 'csstype'
 
@@ -21,18 +21,6 @@ const PopIn = (props : PopInProps) => {
     const playedAnim = useRef(false);
     const [ref, inView] = useInView();
 
-    const handleStartAnim = () => {
-        if (playedAnim.current == false) {
-            playedAnim.current = true;
-            if (props.waitForMs != undefined) {
-                setTimeout(() => api.start(toAnimation), props.waitForMs);
-            }
-            else {
-                api.start(toAnimation);
-            }
-        }
-    }
-
     const toAnimation = {
         to: {
             opacity: 1,
@@ -53,15 +41,13 @@ const PopIn = (props : PopInProps) => {
     
       useEffect(() => {
         if (props.requireVisibility) {
-            if (inView) {
-                handleStartAnim();
-            }
-            else {
-                api.stop();
+            if (inView && playedAnim.current == false) {
+                playedAnim.current = true;
+                api.start(toAnimation);
             }
         }
         else {
-            handleStartAnim();
+            api.start(toAnimation);
         }
         // maybe I want to play the anim again?
       }, [inView]);
