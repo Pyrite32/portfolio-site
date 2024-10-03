@@ -1,5 +1,5 @@
 import { animated, config, useInView, useSpring } from "@react-spring/web";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import ease10 from "../ts/ease10";
 import { Property } from 'csstype'
 
@@ -12,11 +12,26 @@ type PopInProps = {
     //how do I make this change depending on whether I want it to come from the top, left, right, bottom, etc?
     topOffset?: Property.Top,
     springConfig?: { tension: number, friction: number }
+    waitForMs?: number
 }
 
 const PopIn = (props : PopInProps) => {
 
+
+    const playedAnim = useRef(false);
     const [ref, inView] = useInView();
+
+    const handleStartAnim = () => {
+        if (playedAnim.current == false) {
+            playedAnim.current = true;
+            if (props.waitForMs != undefined) {
+                setTimeout(() => api.start(toAnimation), props.waitForMs);
+            }
+            else {
+                api.start(toAnimation);
+            }
+        }
+    }
 
     const toAnimation = {
         to: {
@@ -39,14 +54,14 @@ const PopIn = (props : PopInProps) => {
       useEffect(() => {
         if (props.requireVisibility) {
             if (inView) {
-                api.start(toAnimation);
+                handleStartAnim();
             }
             else {
                 api.stop();
             }
         }
         else {
-            api.start(toAnimation);
+            handleStartAnim();
         }
         // maybe I want to play the anim again?
       }, [inView]);
