@@ -5,6 +5,7 @@ import SkillsTicker from "../components/SkillsTicker";
 import "./IntroWhoAmI.css";
 import useMeasure from 'react-use-measure';
 import { useEffect, useMemo, useState } from "react";
+import RainbowGlow from "../components/RainbowGlow";
 
 
 const titles = ['a Programmer', 'an Artist', 'a UX Designer', 'a Unicorn']
@@ -50,7 +51,13 @@ const WhoAmITitle = () => {
     <span style={{position: "relative", height:"90px", marginLeft:"1rem"}}>
       {changeTitleTransitions((myStyle, i) => (
             <animated.span style={{...myStyle, width:"max-content", position: "absolute", transformOrigin: "center center"}}>
-                {titles[i]}
+                
+                {i === titles.length-1 ? 
+                <span className="relative bottom-2 cursor-pointer">
+                  <RainbowGlow text={titles[i]} /> 
+                </span> :
+                titles[i] 
+              }
             </animated.span>
           ))
       }
@@ -99,17 +106,23 @@ const IntroWhoAmI = () => {
             <ul className="font-pixel text-2xl">
               <li>
                 <button>
-                  <p className="font-pixel text-2xl">code</p>
+                  <p className="font-pixel text-2xl">
+                    <RainbowGlow text="code" />
+                    </p>
                 </button>
               </li>
               <li>
                 <button>
-                  <p className="font-pixel text-2xl">art</p>
+                  <p className="font-pixel text-2xl">
+                  <RainbowGlow text="art" />
+                    </p>
                 </button>
               </li>
               <li>
                 <button>
-                  <p className="font-pixel text-2xl">ux</p>
+                  <p className="font-pixel text-2xl">
+                    <RainbowGlow text="ux" />
+                  </p>
                 </button>
               </li>
             </ul>

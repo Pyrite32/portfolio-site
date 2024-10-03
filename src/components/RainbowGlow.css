@@ -1,0 +1,43 @@
+/*
+I give credit to Manuel Pinto's 
+Pure CSS Gradient Background Animation for helping me:
+https://codepen.io/P1N2O/pen/pyBNzX 
+*/
+
+
+.rainbow-button {
+    background: linear-gradient(to top left,
+    transparent,
+    #B6666520,
+    #66B87610 20%,
+    #666BB820,
+    transparent,
+    #B6666520,
+    #66B87610,
+    #666BB820,
+    transparent 80%
+    );
+    background-repeat: no-repeat;
+    animation: rainbow-button-anim 5s linear infinite;
+    animation-play-state: running;
+    background-size: 400% 400%;
+    border-style: double;
+    border-color: transparent;
+    border-width: 3px;
+    transition-property: border;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.rainbow-button:hover {
+    border-color: #ffffaa20;
+}
+
+
+@keyframes rainbow-button-anim {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 80% 80%;
+	}
+}
