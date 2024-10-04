@@ -135,7 +135,7 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boo
             <li>
               <button 
               className="w-full text-right"
-              onClick={() => window.scrollTo(0, 3280)}
+              onClick={() => window.scrollTo(0, 3390)}
               >
                 <p className="w-full pulse-glow font-pixel text-2xl my-0.5 px-2">
                   art
@@ -143,7 +143,9 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boo
               </button>
             </li>
             <li>
-              <button className="w-full text-right">
+              <button className="w-full text-right"
+              onClick={() => window.scrollTo(0, 3390)}
+              >
                 <p className="w-full pulse-glow font-pixel text-2xl my-0.5 px-2">
                   ux
                 </p>

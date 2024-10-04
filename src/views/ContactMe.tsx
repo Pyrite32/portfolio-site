@@ -38,18 +38,18 @@ const ContactMe = () => {
 
   return (
     <section 
-    className="contact-me-height bg-black px-20 flex flex-col"
+    className="contact-me-height bg-black mobile:px-5 md:px-20 flex flex-col"
     data-scroll-section
     >
       <header className="text-right relative z-20">
         <h1
           data-text="Contact Me"
-          className="anaglyph text-6xl font-serif text-right pt-12 pb-4"
+          className="anaglyph text-6xl font-serif mobile:text-center lg:text-right pt-12 pb-4"
         >
           Contact Me
         </h1>
       </header>
-      <div className="flex-grow flex justify-center gap-20 mb-10 h-max-form-height">
+      <div className="flex-grow flex lg:flex-row mobile:flex-col  justify-center gap-8 md:gap-12 xl:gap-20 mb-10 h-max-form-height">
         <div className="pt-0 flex-grow">
             <div className="mx-auto text-center font-pixbold text-2xl text-off-white">
                 <img src={Eagle} alt="" className="mx-auto mb-4"/>
@@ -59,19 +59,19 @@ const ContactMe = () => {
                 <p className="pb-1 text-xl font-pixel">Github: <a className="text-teal underline underline-offset-4" href="https://github.com/Pyrite32" target="_blank" rel="noopener noreferrer">Pyrite32</a></p>
             </div>
         </div>
-        <form action="/" className="w-8/12 contact-me-form">
-          <div className="flex justify-stretch gap-8 h-1/4">
-            <div className="form-grouping w-1/2 relative">
-              <label htmlFor="name">name | company</label>
+        <form action="/" className="mobile:w-full lg:w-8/12 contact-me-form">
+          <div className="flex mobile:flex-col md:flex-row justify-stretch gap-2 md:gap-4 xl:gap-8 mobile:h-32 md:h-16 lg:h-1/4">
+            <div className="form-grouping mobile:flex-grow mobile:w-full md:w-1/2 relative">
+              <label htmlFor="name">name</label>
               <input
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Alberta Gator"
-                className="IN w-full h-full"
+                className="w-full h-full"
                 type="text"
                 name="name"
               />
             </div>
-            <div className="form-grouping w-1/2 relative">
+            <div className="form-grouping mobile:flex-grow mobile:w-full md:w-1/2 relative">
               <label htmlFor="email">email</label>
               <input
                 onChange={(e) => setEmail(e.target.value)}
@@ -82,20 +82,20 @@ const ContactMe = () => {
               />
             </div>
           </div>
-          <div className="form-grouping pt-8 h-3/4 relative">
+          <div className="form-grouping pt-2 lg:pt-4 xl:pt-8 mobile:h-64 sm:h-40 lg:h-3/4 relative">
             <label htmlFor="customMessage">message</label>
             <textarea
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Hello, I wanted to reach out about..."
+              placeholder="Nice to meet you, I'm..."
               className="resize-none h-full w-full description"
               name="customMessage"
             />
           </div>
-          <div className="w-full flex justify-end items-center gap-4 ml-auto text-right mt-8">
-            <p className="w-1/2 inline-block font-pixel text-xl text-gray">{errorMessage}</p>
+          <div className="flex mobile:flex-col-reverse sm:flex-row justify-end items-center gap-4 text-right mt-8">
+            <p className="inline-block font-pixel text-xl text-gray">{errorMessage}</p>
             <animated.button 
             type='submit' 
-            className={`${errorMessage === '' ? 'pointer-events-none' : 'pointer-events-auto'} inline-block w-1/6 text-center px-12 py-4 font-pixbold`}
+            className={`${errorMessage === '' ? 'pointer-events-none' : 'pointer-events-auto'} inline-block text-center px-12 py-4 font-pixbold`}
             style={styles}>
                 Submit
             </animated.button>
