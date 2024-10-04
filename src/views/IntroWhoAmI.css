@@ -41,7 +41,6 @@
 /* following inspired by: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card*/
 
 .intro-panel-main {
-  background-color: yellow;
   perspective: 1000px;
 }
 
@@ -50,6 +49,8 @@
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  border-radius: 4rem;
+  background-color: calc();
 }
 .intro-panel-me,
 .intro-panel-unicorn {

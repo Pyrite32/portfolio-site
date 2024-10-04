@@ -20,7 +20,7 @@ const titles = [
   "a Unicorn",
 ];
 
-const WhoAmITitle = (props: {onUnicornButtonClick: () => void}) => {
+const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: boolean}) => {
   const [titleIndex, setTitleIndex] = useState(0);
 
   const transRef = useSpringRef();
@@ -82,16 +82,16 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void}) => {
   );
 };
 
-const WhoAmIMain = (props: {onUnicornButtonClick: () => void}) => {
+const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boolean}) => {
   return (
     <div className="absolute">
       <div className="w-9/12 max-w-summary-inner mx-auto">
         <h1 className="text-7xl text-white">
-          <PopIn requireVisibility={true}>
+          <PopIn finished={!props.shouldPlayAnim} requireVisibility={true}>
             Patrick is... <WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
           </PopIn>
         </h1>
-        <PopIn requireVisibility={true} waitForMs={6500} topOffset={"3rem"}>
+        <PopIn finished={!props.shouldPlayAnim} requireVisibility={true} waitForMs={6500} topOffset={"3rem"}>
           <p className="leading-snug text-3xl mt-2 text-off-white">
             As a unicorn, I have passion for building beautiful and functional
             digital experiences. I bridge the gap between aesthetics and
@@ -99,14 +99,14 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void}) => {
             in all aspects of user experience.
           </p>
         </PopIn>
-      <PopIn requireVisibility={true} waitForMs={7500}>
+      <PopIn finished={!props.shouldPlayAnim} requireVisibility={true} waitForMs={7500}>
         <p className="font-pixel text-2xl mt-8">
           <span className="text-yellow">$</span> list skills
         </p>
       </PopIn>
       </div>
       <div className="w-9/12 ml-auto text-right">
-        <PopIn requireVisibility={true} waitForMs={9000}>
+        <PopIn finished={!props.shouldPlayAnim} requireVisibility={true} waitForMs={9000}>
           <ul className="font-pixel text-2xl">
             <li>
               <button
@@ -142,7 +142,7 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void}) => {
 const UnicornDefinition = (props: {onBackButtonClick: () => void}) => {
   return (
     <div className="absolute h-full w-full text-white">
-      <PopIn topOffset={"3rem"}>
+      <PopIn topOffset={"-3rem"}>
         <div className="flex flex-col justify-center items-center w-9/12 mx-auto">
           <div className="text-center w-1/2">
             <h1 className="rainbow-glow rainbow-no-border text-8xl font-sans font-black rounded-2xl">u·ni·corn</h1>
@@ -171,8 +171,8 @@ const IntroWhoAmI = () => {
 
   //
   const [panelIndex, setPanelIndex] = useState(0);
+  const playIntroMainAnim = useRef(true);
 
-  const transRef = useSpringRef();
   const transitionDefinition = useTransition( panelIndex, {
       from: {
         opacity: 0,
@@ -183,7 +183,8 @@ const IntroWhoAmI = () => {
         transform: "rotateY(0deg)"
       },
       exit: {
-        opacity: 0,
+        opacity: 1,
+        backgroundColor: "aaaa",
         transform: "rotateY(180deg)"
       }
     }
@@ -194,14 +195,21 @@ const IntroWhoAmI = () => {
   return (
     <section
       ref={introRef}
-      className="intro bg-black grid-bg-intro h-screen pt-24"
+      className="intro bg-black grid-bg-intro h-screen pt-32"
     >
-      <div className="mx-auto w-11/12 max-w-summary h-1/2">
-        {transitionDefinition((style, i) => 
-        <animated.div style={style} className="intro-panel-inner">
-          {i === 0 ? <WhoAmIMain onUnicornButtonClick={() => setPanelIndex(1)} /> : 
-            <UnicornDefinition onBackButtonClick={() => setPanelIndex(0)}/>}
-        </animated.div>
+      <div className="mx-auto w-11/12 max-w-summary h-1/2 intro-panel-main">
+        {transitionDefinition((style, i) => {
+          if (i === 1) {
+            playIntroMainAnim.current = false;
+          }
+          return (
+            <animated.div style={style} className="intro-panel-inner">
+              {i === 0 ? 
+                <WhoAmIMain shouldPlayAnim={playIntroMainAnim.current} onUnicornButtonClick={() => setPanelIndex(1)} /> : 
+                <UnicornDefinition onBackButtonClick={() => setPanelIndex(0)}/>}
+            </animated.div>
+          )
+        }
         )}
       </div>
       <div className="intro-skills h-skills-ticker w-11/12 relative top-20 mx-auto">

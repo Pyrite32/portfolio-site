@@ -58,7 +58,7 @@ const PopIn = (props : PopInProps) => {
     
     return (
         <animated.span ref={ref} style={{
-            position: "relative", pointerEvents: (canClick ? 'all' : 'none'), ...spring
+            position: "relative", pointerEvents: (canClick || props.finished ? 'all' : 'none'), ...spring
         }} >
             {props.children}
         </animated.span>
