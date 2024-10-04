@@ -51,7 +51,9 @@ const ArtGallery = () => {
 
   return (
     <PopIn requireVisibility={true} topOffset={"3rem"}>
-      <section className="min-h-max relative mt-3 mx-auto 2 h-screen art-showcase flex flex-col justify-stretch gap-0 mb-72 max-w-200%">
+      <section 
+      className="min-h-max relative mt-3 mx-auto 2 h-screen art-showcase flex flex-col justify-stretch gap-0 mb-72 max-w-200%"
+      data-scroll-section>
         <header className="justify-between mx-auto w-art-header px-4 pt-6 leading-3 md:text-left text-center">
           <div>
             <h1 className="sm:ml-0 md:text-7xl sm:text-5xl mobile:text-5xl font-unbounded text-black p-0 m-0 ">

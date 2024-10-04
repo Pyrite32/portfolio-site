@@ -10,12 +10,12 @@ import PopIn from "../components/PopIn";
 const Overview = () => {
   return (
     <>
-      <section className="overview">
+      <section className="overview" data-scroll-section>
         <header className="overview-top__bar-wrapper p-2 mx-4 my-4">
           <div className="overview-top__bar w-full flex justify-between align-middle">
             <span className="overview-top__bar-logo pt-2 pointer-events-none">
               <PopIn>
-                <img src={Logo} alt="logo" width="48px" height="48px" />
+                <img src={Logo} alt="logo" width="48px" height="48px" data-scroll/>
               </PopIn>
             </span>
             <span className="transition ease-out hover:scale-125 pr-16">
@@ -29,10 +29,10 @@ const Overview = () => {
           <div className="absolute top-72 xl:top-32 w-full h-full">
             <div className="relative z-10 flex items-end w-11/12 mobile:right-5 mobileL:mx-auto mobileL:right-0 pointer-events-none p-10">
               <div className="flex flex-col leading-tight relative bottom-32 mr-auto">
-                <h1 className="font-unbounded mobile:text-6xl mobile:text-center md:text-left lg:text-7xl mobile:mt-64 ">
+                <h1 className="font-unbounded mobile:text-6xl mobile:text-center md:text-left lg:text-7xl mobile:mt-64 " data-scroll>
                   <PopInText delay={50}>Patrick Keefe</PopInText>
                 </h1>
-                <p className="text-off-white pt-8 mobile:hidden sm:block">
+                <p className="text-off-white pt-2 mobile:hidden sm:block">
                   <PopInText delay={500}>
                     FRONT-END ENGINEER | GAME DEVELOPER | ARTIST
                   </PopInText>

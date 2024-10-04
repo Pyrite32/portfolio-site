@@ -37,7 +37,10 @@ const ContactMe = () => {
 
 
   return (
-    <section className="contact-me-height bg-black px-20 flex flex-col">
+    <section 
+    className="contact-me-height bg-black px-20 flex flex-col"
+    data-scroll-section
+    >
       <header className="text-right relative z-20">
         <h1
           data-text="Contact Me"

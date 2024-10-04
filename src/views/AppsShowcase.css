@@ -1,5 +1,24 @@
+.bg-slate {
+    animation: bg-slate-anim 1s ease infinite;
+}
+
+@keyframes bg-slate-anim {
+    0% {
+        background-color: rgba(28, 28, 53, 0.5);
+    }
+
+    50% {
+        background-color: rgba(28, 28, 53, 0.55);
+    }
+
+    100% {
+        background-color: rgba(28, 28, 53, 0.5);
+    }
+}
+
+
 .h-roulette {
-    height: 85%;
+    height: 100%;
 }
 
 .w-roulette-inner {

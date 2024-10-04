@@ -26,6 +26,7 @@ import "./SkillsTicker.css";
 import { useState, useRef, useEffect } from "react";
 import useMeasure, { RectReadOnly } from "react-use-measure";
 import remap from '../ts/remap'
+import { useInView } from "@react-spring/web";
 // load icons
 // move an icon until it disappears
 // track whenever icon escapes screen fully

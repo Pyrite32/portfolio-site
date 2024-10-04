@@ -10,7 +10,9 @@ const AppsShowcase = () => {
 
   return (
     <PopIn requireVisibility={true} topOffset={"3rem"}>
-      <section className="relative mx-auto mt-32 h-screen max-w-200%">
+      <section 
+      className="relative mx-auto mt-32 h-screen max-w-200%"
+      data-scroll-section>
         <header className="md:px-32 px-4 pt-6 leading-3 lg:text-right text-center">
           <h1 className="lg:text-7xl sm:text-6xl mobile:text-3xl mobile:py-2 sm:py-0 font-unbounded text-black">
             Apps I’ve Built

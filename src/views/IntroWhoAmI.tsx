@@ -125,7 +125,7 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boo
             <li>
               <button
                 className="w-full text-right"
-                onClick={() => window.scrollTo(0, 1950)}
+                onClick={() => window.scrollTo(0, 2350)}
               >
                 <p className="w-full pulse-glow font-pixel text-2xl my-0.5 px-2">
                   code
@@ -133,7 +133,10 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boo
               </button>
             </li>
             <li>
-              <button className="w-full text-right">
+              <button 
+              className="w-full text-right"
+              onClick={() => window.scrollTo(0, 3280)}
+              >
                 <p className="w-full pulse-glow font-pixel text-2xl my-0.5 px-2">
                   art
                 </p>
@@ -209,7 +212,8 @@ const IntroWhoAmI = () => {
     <section
       ref={introRef}
       className="intro bg-black grid-bg-intro h-intro lg:pt-20 mobile:pt-10"
-    >
+      data-scroll-section
+      >
       <div className="mx-auto mobile:w-11/12 lg:w-8/12 max-w-summary lg:h-1/2 mobile:h-3/4 intro-panel-main sm:pb-10">
         {transitionDefinition((style, i) => {
           if (i === 1) {
