@@ -154,12 +154,11 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
         className="ticker__item"
         src={src}
         alt={name}
-        width="224px"
-        height="224px"
         onMouseEnter={() => set(true)}
         onMouseLeave={() => set(false)}
         style={{
           opacity: showTooltip ? "100%" : "50%",
+          width: "6%"
         }}
       />
         <div
@@ -200,14 +199,14 @@ const SkillsTicker: React.FC<RectReadOnly> = (props: RectReadOnly) => {
   const [isHoveringTicker, setHoveringTicker] = useState(false);
 
   return (
-    <div className="h-full w-full font-serif flex flex-col justify-between">
+    <div className=" w-full max-h-full font-serif flex flex-col justify-between">
       <p className="text-2xl text-light-fuschia font-serif">
         &lt;SkillsTicker&gt;
       </p>
       <hr className="text-light-fuschia" />
         {/* I would love to put overflow-x-hidden, but it causes the tooltips to clip as well */}
-      <div className="ticker-wrap flex flex-grow">
-        <div className="ticker flex justify-start items-center" 
+      <div className="ticker-wrap flex">
+        <div className="ticker flex justify-start items-center p-1" 
             onMouseEnter={() => setHoveringTicker(true)}
             onMouseLeave={() => setHoveringTicker(false)}
             >

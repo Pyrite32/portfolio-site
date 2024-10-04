@@ -57,7 +57,7 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: bool
   }, [titleIndex]);
 
   return (
-    <span style={{ position: "relative", marginLeft: "1rem" }}>
+    <span className="relative ml-4">
       {changeTitleTransitions((myStyle, i) => (
         <animated.span
           style={{
@@ -85,9 +85,9 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: bool
 const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boolean}) => {
   return (
     <div className="absolute">
-      <div className="mobile: w-9/12 max-w-summary-inner mx-auto">
-      <div className="inline-block">
-        <h1 className="text-7xl text-white">
+      <div className="mobile:w-full w-9/12 max-w-summary-inner mx-auto">
+      <div className="inline-block mobile:mb-4">
+        <h1 className="lg:text-7xl mobile:text-4xl mobileL:text-5xl text-white">
           <PopIn finished={!props.shouldPlayAnim} requireVisibility={true}>
               Patrick is... <br className="mobile:inline lg:hidden" /><WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
           </PopIn>
@@ -95,7 +95,7 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boo
         </div>
         
         <PopIn finished={!props.shouldPlayAnim} requireVisibility={true} waitForMs={6500} topOffset={"3rem"}>
-          <p className="leading-snug text-3xl mt-2 text-off-white">
+          <p className="leading-snug mobile:text-xl mobileL:text-2xl lg:text-3xl mt-2 text-off-white">
             As a unicorn, I have passion for building beautiful and functional
             digital experiences. I bridge the gap between aesthetics and
             technology, ensuring every project I am involved in is able to deliver
@@ -197,7 +197,7 @@ const IntroWhoAmI = () => {
   return (
     <section
       ref={introRef}
-      className="intro bg-black grid-bg-intro h-screen lg:pt-32 mobile:pt-20"
+      className="intro bg-black grid-bg-intro h-intro lg:pt-32 mobile:pt-20"
     >
       <div className="mx-auto w-11/12 max-w-summary lg:h-1/2 mobile:h-3/4 intro-panel-main">
         {transitionDefinition((style, i) => {
@@ -214,7 +214,7 @@ const IntroWhoAmI = () => {
         }
         )}
       </div>
-      <div className="top-20 intro-skills h-skills-ticker w-11/12 relative mx-auto">
+      <div className="lg:top-10 mobile:bottom-32 h-skills-ticker w-11/12 relative mx-auto">
         <SkillsTicker {...rect} />
       </div>
     </section>

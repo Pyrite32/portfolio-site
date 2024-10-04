@@ -30,10 +30,6 @@
   text-rendering: auto;
 }
 
-.h-skills-ticker {
-  height: 30%;
-}
-
 .max-w-summary {
   max-width: 120rem;
 }
@@ -66,4 +62,14 @@
 }
 
 .intro-panel-unicorn {
+}
+
+.h-intro {
+    height: 110vh;
+}
+
+@media screen and (max-width: 976px) {
+    .h-intro {
+        height: 120vh;
+    }   
 }
