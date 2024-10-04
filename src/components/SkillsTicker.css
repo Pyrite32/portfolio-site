@@ -1,11 +1,11 @@
 @keyframes ticker {
   0% {
-    transform: translate3d(-0.4%, 0, 0);
+    transform: translate3d(-1.4%, 0, 0);
     visibility: visible;
   }
   /*175 270dvw*/
   100% {
-    transform: translate3d(-138%, 0, 0);
+    transform: translate3d(-173.5%, 0, 0);
   }
 }
 
@@ -45,7 +45,7 @@
   -webkit-animation-name: ticker;
   animation-name: ticker;
   -webkit-animation-duration: 50s;
-  animation-duration: 30s;
+  animation-duration: 50s;
 }
 
 .ticker:hover {

@@ -167,7 +167,7 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
           style={{
             visibility: (showTooltip ? 'visible' : 'hidden'),
             opacity: "100%",
-            left: mousePosition.x - 50,
+            left: mousePosition.x - 30,
             // using the top and bottom of the icon, map mousePosition to 'top' pixels.
             top: remap(
               mousePosition.y,
@@ -182,7 +182,7 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
                 // -860 - the 'top' pixels number needed to make the tooltip look good at the 1800 breakpoint 
               0 + pageRect.top + remap(scrollTop, 687, 1800, -220, 860),
               160 + pageRect.top + remap(scrollTop, 687, 1800, -220, 860),
-            ) - 100,
+            ) - 285,
           }}
         >
           <p className="text-lg font-pixel font-bold">{name}</p>
