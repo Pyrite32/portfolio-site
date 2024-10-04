@@ -57,7 +57,7 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: bool
   }, [titleIndex]);
 
   return (
-    <span className="relative ml-4">
+    <span className="relative ml-4 mobile:top-3 lg:top-0">
       {changeTitleTransitions((myStyle, i) => (
         <animated.span
           style={{
