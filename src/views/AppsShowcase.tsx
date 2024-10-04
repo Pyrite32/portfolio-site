@@ -46,6 +46,10 @@ const AppsShowcase = () => {
               </svg>
             </div>
             <div className="h-full lg:w-11/12 mobile:w-full mx-auto flex flex-col justify-center">
+              <p 
+              className="box-shadow-3d lg:hidden inline max-w-64 text-off-white text-center font-pixbold w-11/12 mx-auto bg-black text-2xl">
+                OVERVIEW
+              </p>
               <div className="lg:p-10 mobileL:p-4 mobile:p-2 flex lg:flex-row justify-between items-center mobile:flex-col">
                 <div className="flex justify-center lg:w-1/2 flex-grow mobile:h-min mobile:w-11/12">
                   {rouletteView ? (
@@ -56,12 +60,12 @@ const AppsShowcase = () => {
                 </div>
                 <div className="flex flex-col lg:justify-center mobile:justify-start items-center mobile:h-min lg:h-full lg:w-1/2 mobile:w-full">
                   <div className="flex flex-col items-center justify-center lg:w-9/12 mobile:w-full">
-                    <p className="font-pixel text-lg text-black">overview</p>
-                    <p className="font-nova text-black text-3xl">
+                    <p className="mobile:hidden lg:inline font-pixel text-lg text-black">overview</p>
+                    <p className="font-nova text-black text-3xl mobile:hidden lg:inline">
                       A CATALOG OF PROJECTS RANGING FROM FRONTEND to BACKEND to
                       GAME DEVELOPMENT.
                     </p>
-                    <animated.div className="mt-5 mb-2 text-xl">
+                    <animated.div className="mt-5 mb-2 text-black font-pixbold text-xl px-4">
                       {rouletteView ? "Roulette" : "List"} View
                     </animated.div>
                     <div
