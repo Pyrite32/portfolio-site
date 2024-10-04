@@ -18,9 +18,9 @@ const Overview = () => {
                 <img src={Logo} alt="logo" width="48px" height="48px" data-scroll/>
               </PopIn>
             </span>
-            <span className="transition ease-out hover:scale-125 pr-16">
+            {/* <span className="transition ease-out hover:scale-125 pr-16">
               <Burger />
-            </span>
+            </span> */}
           </div>
         </header>
         <div className="overview-remainder relative">
