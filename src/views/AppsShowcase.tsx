@@ -22,7 +22,7 @@ const AppsShowcase = () => {
             //////////////////////////////////
           </p>
         </header>
-        <div className="flex flex-col h-roulette lg:w-11/12 sm:w-full mx-auto">
+        <div className="mobile:ml-0 sm:ml-8 lg:mx-auto flex flex-col h-roulette lg:w-11/12 sm:w-full sm:mx-auto">
           <h3 className="sm:inline mobile:hidden font-serif text-fuschia text-2xl">&lt;Showcase&gt;</h3>
           <div className="flex flex-row flex-grow roulette">
             <div className="mobile:hidden sm:block">

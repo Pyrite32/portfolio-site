@@ -14,9 +14,9 @@ import "../components/RainbowGlow.css";
 import "../components/PulseGlow.css";
 
 const titles = [
-  "a Programmer 👨🏻‍💻",
-  "an Artist 👨🏻‍🎨",
-  "a UX Designer 👨🏻‍🎨",
+  "a Programmer",
+  "an Artist",
+  "a UX Designer",
   "a Unicorn",
 ];
 
@@ -87,15 +87,15 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boo
     <div className="absolute">
       <div className="mobile:w-full w-9/12 max-w-summary-inner mx-auto">
       <div className="inline-block mobile:mb-4">
-        <h1 className="lg:text-7xl mobile:text-4xl mobileL:text-5xl text-white">
+        <h1 className="lg:text-7xl mobile:text-3xl mobileL:text-4xl sm:text-5xl text-white">
           <PopIn finished={!props.shouldPlayAnim} requireVisibility={true}>
-              Patrick is... <br className="mobile:inline xl:hidden" /><WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
+              <span className="mobile:ml-4 xl:ml-0">Patrick</span> is... <br className="mobile:inline xl:hidden" /><WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
           </PopIn>
         </h1>
         </div>
         
         <PopIn finished={!props.shouldPlayAnim} requireVisibility={true} waitForMs={6500} topOffset={"3rem"}>
-          <p className="leading-snug mobile:text-xl mobileL:text-2xl lg:text-3xl mt-2 text-off-white">
+          <p className="mobile:leading-normal sm:leading-snug mobile:text-xl mobileL:text-2xl lg:text-3xl mobile:mt-8 sm:mt-2 text-off-white">
             As a unicorn, I have passion for building beautiful and functional
             digital experiences. I bridge the gap between aesthetics and
             technology, ensuring every project I am involved in is able to deliver
@@ -197,7 +197,7 @@ const IntroWhoAmI = () => {
   return (
     <section
       ref={introRef}
-      className="intro bg-black grid-bg-intro h-intro lg:pt-20 mobile:pt-20"
+      className="intro bg-black grid-bg-intro h-intro lg:pt-20 mobile:pt-10"
     >
       <div className="mx-auto mobile:w-11/12 lg:w-8/12 max-w-summary lg:h-1/2 mobile:h-3/4 intro-panel-main sm:pb-10">
         {transitionDefinition((style, i) => {
