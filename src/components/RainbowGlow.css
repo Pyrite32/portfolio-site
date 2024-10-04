@@ -32,12 +32,16 @@ https://codepen.io/P1N2O/pen/pyBNzX
     border-radius: 9999px;
     padding-left: 1rem;
     padding-right: 1rem;
-    position: relative;
     bottom: 0.125rem;
 }
 
 .rainbow-glow:hover {
     border-color: #ffffaa20;
+}
+
+.rainbow-glow.rainbow-no-border:hover {
+    /* First time I've needed to use important */
+    border-color: transparent !important;
 }
 
 
@@ -48,4 +52,18 @@ https://codepen.io/P1N2O/pen/pyBNzX
 	100% {
 		background-position: 80% 80%;
 	}
+}
+
+.back-btn {
+    transition-property: background-color, transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    transform: scale(1.0);
+    transform-origin: center center;
+    background-color: theme('colors.light-gray');
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    background-color: theme('colors.white');
 }

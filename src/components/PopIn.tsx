@@ -13,6 +13,7 @@ type PopInProps = {
     topOffset?: Property.Top,
     springConfig?: { tension: number, friction: number }
     waitForMs?: number
+    finished?: boolean
 }
 
 const PopIn = (props : PopInProps) => {
@@ -31,8 +32,8 @@ const PopIn = (props : PopInProps) => {
 
     const [spring, api] = useSpring(() => ({
           from: {
-            opacity: 0,
-            top: props.topOffset || "60%",
+            opacity: props.finished ? 1 : 0,
+            top: props.finished ? 0 : (props.topOffset || "3rem"),
           },
           config: {
             easing: (x) => ease10(x, 0.15),
