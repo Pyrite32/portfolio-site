@@ -147,7 +147,7 @@ const UnicornDefinition = (props: {onBackButtonClick: () => void}) => {
     <div className="absolute h-full w-full text-white">
       <PopIn topOffset={"-3rem"}>
         <div className="flex flex-col justify-center items-center w-9/12 mx-auto">
-          <div className="text-center w-1/2">
+          <div className="text-center w-fit">
             <h1 className="rainbow-glow rainbow-no-border text-8xl font-sans font-black rounded-2xl">u·ni·corn</h1>
             <h2 className="text-4xl">[ˈyo͞onəˌkôrn]</h2>
           </div>
