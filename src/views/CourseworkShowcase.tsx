@@ -12,7 +12,9 @@ import CardStyle from "../ts/CardStyle";
 
 const MovingText = () => {
   const [scrollY, setScroll] = useState(0);
-  const [windowSize, setWindowSize] = useState(0);
+  const [windowSize, setWindowSize] = useState(
+    {innerWidth: 0, innerHeight: 0}
+  );
 
   useEffect(() => {
     const text = document.getElementById("gargantuanText")!;
@@ -21,13 +23,13 @@ const MovingText = () => {
     };
 
     const handleResize = () => {
-      setWindowSize(window.innerHeight);
+      setWindowSize({innerWidth: window.innerWidth, innerHeight: window.innerHeight});
     };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
 
-    setWindowSize(window.innerHeight);
+    setWindowSize({innerWidth: window.innerWidth, innerHeight: window.innerHeight});
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -35,7 +37,7 @@ const MovingText = () => {
     };
   }, []);
 
-  let rightAmnt = remap(scrollY, 0, windowSize, 300, -1200);
+  let rightAmnt = remap(scrollY, 0, windowSize.innerHeight, 300, -1200);
   if (rightAmnt == null) rightAmnt = 0;
 
   return (
@@ -57,16 +59,13 @@ const CourseworkShowcase = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768 && windowWidth.current > 768) {
-        console.log("1x breakpoint!");
         setCardStyles(smCardStyles);
       } else if (
         (window.innerWidth <= 1200 && windowWidth.current > 1200) ||
         (window.innerWidth > 768 && windowWidth.current <= 768)
       ) {
-        console.log("2x breakpoint!");
         setCardStyles(mdCardStyles);
       } else if (window.innerWidth > 1200 && windowWidth.current <= 1200) {
-        console.log("4x breakpoint!");
         setCardStyles(lgCardStyles);
       }
       windowWidth.current = window.innerWidth;
@@ -77,13 +76,10 @@ const CourseworkShowcase = () => {
     const firstTime = windowWidth.current != window.innerWidth;
     if (firstTime) {
       if (window.innerWidth <= 768) {
-        console.log("1x breakpoint!");
         setCardStyles(smCardStyles);
       } else if (window.innerWidth <= 1200) {
-        console.log("2x breakpoint!");
         setCardStyles(mdCardStyles);
       } else {
-        console.log("4x breakpoint!");
         setCardStyles(lgCardStyles);
       }
     }
@@ -102,13 +98,13 @@ const CourseworkShowcase = () => {
       </header>
       <PopIn requireVisibility={true} topOffset="3rem">
         <animated.div
-          className="big-container back-shadow mx-auto w-10/12 h-min bg-off-white relative z-10 max-w-200%"
+          className="big-container back-shadow mx-auto sm:w-full md:w-10/12 h-min bg-off-white relative z-10 max-w-200%"
           style={{
             top: scrollYProgress.to((value) => `${100 + value * -200}px`),
           }}
         >
-          <div className="py-20 px-6 w-8/12 mx-auto h-full gap-0">
-            <p className="text-fuschia font-serif leading-none">
+          <div className="py-20 sm:px-0 mobileL:w-10/12 sm:w-8/12 mx-auto h-full gap-0">
+            <p className="sm:inline mobile:hidden text-fuschia font-serif leading-none">
               &lt;Coursework&gt;
             </p>
             <div className="big-container__layout flex flex-wrap ">
@@ -120,7 +116,7 @@ const CourseworkShowcase = () => {
                 />
               ))}
             </div>
-            <p className="text-fuschia font-serif text-right leading-none">
+            <p className="sm:inline mobile:hidden text-fuschia font-serif text-right leading-none">
               &lt;/Coursework&gt;
             </p>
           </div>

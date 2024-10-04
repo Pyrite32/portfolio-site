@@ -42,7 +42,7 @@ const CourseworkTitle = (props: {
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="box-border font-pixel max-w-1/4 bg-off-white relative"
+      className="sm:h-72 box-border font-pixel max-w-1/4 bg-off-white relative"
     >
       {hovered && 
         <div 
@@ -63,7 +63,7 @@ const CourseworkTitle = (props: {
             </div>
         </div>
       }
-      <div className="TEST flex flex-col items-center px-7 py-5">
+      <div className="TEST h-full flex flex-col justify-center items-center px-7 py-5">
         <div className="mx-auto w-max max-h-svg mt-2 mb-8">
           <img
             width={props.data.customWidth}

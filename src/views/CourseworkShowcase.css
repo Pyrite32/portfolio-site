@@ -11,7 +11,13 @@
 }
 
 .big-container {
-    clip-path: path("M 154 2 H 5000 V 3000 H 2 V 125 Z");
+    clip-path: none;
+}
+
+@media screen and (min-width: 480px) {
+    .big-container {
+        clip-path: path("M 154 2 H 5000 V 3000 H 2 V 125 Z");
+    }
 }
 
 .max-w-200\% {

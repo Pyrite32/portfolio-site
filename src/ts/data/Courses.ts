@@ -1,3 +1,5 @@
+//  Learned how to create linked lists, stacks, queues, BSTs, ASTs, graphs, and implement BFS, DFS, Djikstra, and A* algorithms
+
 export default [
     {
       code: "COP 4600",
@@ -16,7 +18,7 @@ export default [
     {
       code: "COP 3530",
       name: "Data Structures & Algorithms",
-      desc: "Custom implementation of various data structures and sorting/pathing algorithms in C++. Learned how to create linked lists, stacks, queues, BSTs, ASTs, graphs, and implement BFS, DFS, Djikstra, and A* algorithms",
+      desc: "Custom implementation of various data structures and sorting/pathing algorithms in C++.",
       icon: "dsa",
       customWidth: 58,
     },
