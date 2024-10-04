@@ -23,6 +23,7 @@ function App() {
         <div className='bg-black grid-bg-space' />
         <IntroWhoAmI />
         <AppsShowcase/>
+        <div className='mobile:min-h-96 lg:min-h-32' />
         <ArtShowcase/>
         <CourseworkShowcase />
         <RepeatingTextTicker text="END OF SITE"/>
