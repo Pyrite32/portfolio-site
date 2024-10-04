@@ -1,6 +1,7 @@
 import {
   animated,
   config,
+  useInView,
   useSpringRef,
   useTransition,
 } from "@react-spring/web";
@@ -24,6 +25,7 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: bool
   const [titleIndex, setTitleIndex] = useState(0);
 
   const transRef = useSpringRef();
+  const [ref, isVisible] = useInView();
 
   const changeTitleTransitions = useTransition(titleIndex, {
     ref: transRef,
@@ -34,17 +36,26 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: bool
   });
 
   const timeout = useMemo(
-    () =>
-      setInterval(() => {
-        if (titleIndex < titles.length - 1) {
-          setTitleIndex((prev) => prev + 1);
+    () => {
+      // there has to be a better way.
+      let index = 0;
+      return setInterval(() => {
+        if (index < titles.length - 1 && isVisible) {
+          console.log("titleIndex: " + index + " len: " + (titles.length-1));
+          // THIS IS SO CURSED            v!
+          index += 1
+          setTitleIndex((prev) => Math.min(titles.length-1, prev + 0.5));
         }
-      }, 2000),
-    []
+      }, 2000)
+    }
+      ,[isVisible]
   );
 
-  // not working as expected!:
-  //useEffect( () => () => console.log("unmount"), [] );
+  useEffect(() => {
+    if (!isVisible) {
+      clearInterval(timeout);
+    }
+  }, [isVisible])
 
   useEffect(() => {
     if (titleIndex === titles.length - 1) {
@@ -57,7 +68,7 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: bool
   }, [titleIndex]);
 
   return (
-    <span className="relative ml-4 mobile:top-3 lg:top-0">
+    <span ref={ref} className="relative ml-4 mobile:top-3 lg:top-0">
       {changeTitleTransitions((myStyle, i) => (
         <animated.span
           style={{
