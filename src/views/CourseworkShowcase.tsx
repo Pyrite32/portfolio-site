@@ -1,80 +1,128 @@
-import useMeasure from 'react-use-measure';
-import CourseworkTile from '../components/CourseworkTile';
-import './CourseworkShowcase.css'
-import { useEffect, useRef, useState } from 'react';
-import { lgCardStyles } from '../ts/data/CardStyles';
-import remap from '../ts/remap';
-import courses from '../ts/data/Courses'
-import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
-import PopIn from '../components/PopIn';
-import { animated, useScroll } from '@react-spring/web';
-
+import useMeasure from "react-use-measure";
+import CourseworkTile from "../components/CourseworkTile";
+import "./CourseworkShowcase.css";
+import { useEffect, useId, useRef, useState } from "react";
+import { lgCardStyles, mdCardStyles, smCardStyles } from "../ts/data/CardStyles";
+import remap from "../ts/remap";
+import courses from "../ts/data/Courses";
+import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
+import PopIn from "../components/PopIn";
+import { animated, useScroll } from "@react-spring/web";
+import CardStyle from "../ts/CardStyle";
 
 const MovingText = () => {
-
   const [scrollY, setScroll] = useState(0);
   const [windowSize, setWindowSize] = useState(0);
 
   useEffect(() => {
-    const text = document.getElementById('gargantuanText')!;
+    const text = document.getElementById("gargantuanText")!;
     const handleScroll = () => {
       setScroll(text.getBoundingClientRect().top);
     };
 
     const handleResize = () => {
-      setWindowSize(window.innerHeight)
-    }
+      setWindowSize(window.innerHeight);
+    };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
 
     setWindowSize(window.innerHeight);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  let rightAmnt = remap(scrollY, 0, windowSize, 300, -1200)
+  let rightAmnt = remap(scrollY, 0, windowSize, 300, -1200);
   if (rightAmnt == null) rightAmnt = 0;
 
   return (
-    <h1 id="gargantuanText" className="absolute text-gargantuan font-outline text-black p-0 m-0"
-    style={{right: rightAmnt}}>
+    <h1
+      id="gargantuanText"
+      className="absolute text-gargantuan font-outline text-black p-0 m-0"
+      style={{ right: rightAmnt }}
+    >
       COURSEWORK
     </h1>
   );
-}
+};
 
 const CourseworkShowcase = () => {
+  const { scrollYProgress } = useScroll();
+  const [cardStyles, setCardStyles] = useState<Array<CardStyle>>(lgCardStyles)!;
+  const windowWidth = useRef(0);
 
-  const {scrollYProgress} = useScroll();
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768 && windowWidth.current > 768) {
+        console.log("1x breakpoint!");
+        setCardStyles(smCardStyles);
+      } else if (
+        (window.innerWidth <= 1200 && windowWidth.current > 1200) ||
+        (window.innerWidth > 768 && windowWidth.current <= 768)
+      ) {
+        console.log("2x breakpoint!");
+        setCardStyles(mdCardStyles);
+      } else if (window.innerWidth > 1200 && windowWidth.current <= 1200) {
+        console.log("4x breakpoint!");
+        setCardStyles(lgCardStyles);
+      }
+      windowWidth.current = window.innerWidth;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    const firstTime = windowWidth.current != window.innerWidth;
+    if (firstTime) {
+      if (window.innerWidth <= 768) {
+        console.log("1x breakpoint!");
+        setCardStyles(smCardStyles);
+      } else if (window.innerWidth <= 1200) {
+        console.log("2x breakpoint!");
+        setCardStyles(mdCardStyles);
+      } else {
+        console.log("4x breakpoint!");
+        setCardStyles(lgCardStyles);
+      }
+    }
+
+    windowWidth.current = window.innerWidth;
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <section className="h-screen mt-20 mb-32">
+    <section className="h-max mt-20 mb-32">
       <header className="md:px-32 px-4 pt-6 h-32 leading-3 md:text-right text-center relative">
         <MovingText />
       </header>
-      <PopIn requireVisibility={true} topOffset="3rem" >
-        <animated.div className='big-container back-shadow mx-auto w-10/12 h-min bg-off-white relative z-10 max-w-200%'
-        style={{top: scrollYProgress
-          .to((value) =>
-            `${100 + value * -200}px` 
-          )}}
+      <PopIn requireVisibility={true} topOffset="3rem">
+        <animated.div
+          className="big-container back-shadow mx-auto w-10/12 h-min bg-off-white relative z-10 max-w-200%"
+          style={{
+            top: scrollYProgress.to((value) => `${100 + value * -200}px`),
+          }}
         >
-          <div className='py-20 px-6 w-8/12 mx-auto h-full gap-0'>
-            <p className='text-fuschia font-serif leading-none'>&lt;Coursework&gt;</p>
-            <div className='big-container__layout flex flex-wrap '>
+          <div className="py-20 px-6 w-8/12 mx-auto h-full gap-0">
+            <p className="text-fuschia font-serif leading-none">
+              &lt;Coursework&gt;
+            </p>
+            <div className="big-container__layout flex flex-wrap ">
               {courses.map((item, index) => (
-                <CourseworkTile 
-                data={item} 
-                cardStyle={lgCardStyles[index]} 
-                key={`courseTile-${index}`}
+                <CourseworkTile
+                  data={item}
+                  cardStyle={cardStyles[index]}
+                  key={`courseTile-${index}`}
                 />
               ))}
             </div>
-            <p className='text-fuschia font-serif text-right leading-none'>&lt;/Coursework&gt;</p>
+            <p className="text-fuschia font-serif text-right leading-none">
+              &lt;/Coursework&gt;
+            </p>
           </div>
         </animated.div>
       </PopIn>

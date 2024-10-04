@@ -21,3 +21,23 @@
     left: calc(-100% - 3px);
     width: calc(200% + 3px);
 }
+
+.open-card__center {
+    background-color: theme('colors.black');
+    width: 100%;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .max-w-1\/4 {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .max-w-1\/4 {
+        flex: 100%;
+        max-width: 100%;
+    }
+}

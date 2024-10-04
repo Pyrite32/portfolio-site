@@ -3,5 +3,5 @@ export default interface CardStyle {
     leftBorderWidth: 1 | 0;
     rightBorderWidth: 1 | 0;
     bottomBorderWidth: 1 | 0;
-    openDirection: "left" | "right";
+    openDirection: "left" | "right" | "center";
   }
