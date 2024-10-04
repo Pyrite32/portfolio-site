@@ -9,12 +9,12 @@ const AppsShowcaseListViewItem: React.FC<AppShowcaseItemData> = (props) => {
   return (
     <li className="flex flex-row list-view-item__panel bg-dark-gray justify-between relative">
       <div className="text-wrap text-lg p-5 box-border flex-grow max-w-fit w-1/2 z-10">
-        <h2 className="text-light-fuschia font-nova font-bold underline underline-offset-2">
+        <h2 className="text-light-fuschia mobile:text-2xl lg:mb-0.5 font-nova font-bold underline underline-offset-2">
           <a href={props.link} target="_blank" rel="noopener noreferrer">
             {props.name}
           </a>
         </h2>
-        <p className="text-sm text-light-gray font-nova">{props.description}</p>
+        <p className="xl:text-lg mobile:text-xl text-light-gray font-nova">{props.description}</p>
       </div>
       <div
         className="list-view-item__image min-w-32 min-h-32 bg-cover bg-center fade-left z-10 opacity-70"
@@ -77,15 +77,15 @@ const AppsShowcaseListView = () => {
   }, []);
 
   return (
-    <article className="w-full h-list-view flex flex-col items-center">
-      <ul ref={listRef} className="list-view h-full overflow-x-visible overflow-y-scroll">
+    <article className="w-full flex flex-col justify-stretch items-center">
+      <ul ref={listRef} className="list-view flex-grow overflow-x-visible overflow-y-scroll">
         {listFlyIns.map((props, index) => (
             <animated.div style={props} className="relative">
                 <AppsShowcaseListViewItem {...data[index]} key={index} />
             </animated.div>
         ))}
       </ul>
-      <div className="chevron">
+      <div className="chevron flex-grow-0">
         {/* UP CHEVRON */}
         <svg
           style={{ display: chevronState === "bottom" ? "block" : "none" }}

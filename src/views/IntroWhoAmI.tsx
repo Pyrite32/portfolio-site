@@ -89,7 +89,7 @@ const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boo
       <div className="inline-block mobile:mb-4">
         <h1 className="lg:text-7xl mobile:text-4xl mobileL:text-5xl text-white">
           <PopIn finished={!props.shouldPlayAnim} requireVisibility={true}>
-              Patrick is... <br className="mobile:inline lg:hidden" /><WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
+              Patrick is... <br className="mobile:inline xl:hidden" /><WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
           </PopIn>
         </h1>
         </div>
