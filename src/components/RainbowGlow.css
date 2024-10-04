@@ -54,16 +54,3 @@ https://codepen.io/P1N2O/pen/pyBNzX
 	}
 }
 
-.back-btn {
-    transition-property: background-color, transform;
-    transition-duration: 300ms;
-    transition-timing-function: ease-out;
-    transform: scale(1.0);
-    transform-origin: center center;
-    background-color: theme('colors.light-gray');
-}
-
-.back-btn:hover {
-    transform: scale(1.1);
-    background-color: theme('colors.white');
-}
