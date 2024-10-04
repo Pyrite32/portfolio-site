@@ -60,7 +60,7 @@ const AppsShowcaseRoulette = () => {
     
     return (
         <article className='roulette-main h-full p-0 flex flex-col justify-center items-center'>
-            <div ref={ref} className='roulette-content flex flex-row items-baseline overflow-hidden min-h-96'>
+            <div ref={ref} className='roulette-content flex flex-row items-baseline overflow-hidden h-roulette'>
                 {springs.map(({x, display, scale}, i) => (
                     <animated.div className="roulette-infront-page" {...bind()} key={i} style={{display, x}}>
                         <animated.div style={{scale, backgroundImage: `url(${pages[i].icon})` }} />

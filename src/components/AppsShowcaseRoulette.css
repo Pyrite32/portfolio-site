@@ -29,3 +29,19 @@
     position: relative;
     border-radius: 4px;
 }
+
+.h-roulette {
+    min-height: 20rem;
+}
+
+@media screen and (min-width:976px) {
+    .h-roulette {
+        min-height: 30rem;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .h-roulette {
+        min-height: 30rem;
+    }
+}
