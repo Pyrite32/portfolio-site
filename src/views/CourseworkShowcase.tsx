@@ -37,7 +37,7 @@ const MovingText = () => {
     };
   }, []);
 
-  let rightAmnt = remap(scrollY, 0, windowSize.innerHeight, 300, -1200);
+  let rightAmnt = remap(scrollY, 0, windowSize.innerWidth, 300, -1200);
   if (rightAmnt == null) rightAmnt = 0;
 
   return (
