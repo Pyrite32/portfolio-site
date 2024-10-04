@@ -158,7 +158,7 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
         onMouseLeave={() => set(false)}
         style={{
           opacity: showTooltip ? "100%" : "50%",
-          width: "6%"
+          width: "7.5%"
         }}
       />
         <div
