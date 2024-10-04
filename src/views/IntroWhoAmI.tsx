@@ -85,12 +85,15 @@ const WhoAmITitle = (props: {onUnicornButtonClick: () => void, shouldPlay?: bool
 const WhoAmIMain = (props: {onUnicornButtonClick: () => void, shouldPlayAnim:boolean}) => {
   return (
     <div className="absolute">
-      <div className="w-9/12 max-w-summary-inner mx-auto">
+      <div className="mobile: w-9/12 max-w-summary-inner mx-auto">
+      <div className="inline-block">
         <h1 className="text-7xl text-white">
           <PopIn finished={!props.shouldPlayAnim} requireVisibility={true}>
-            Patrick is... <WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
+              Patrick is... <br className="mobile:inline lg:hidden" /><WhoAmITitle onUnicornButtonClick={props.onUnicornButtonClick} />
           </PopIn>
         </h1>
+        </div>
+        
         <PopIn finished={!props.shouldPlayAnim} requireVisibility={true} waitForMs={6500} topOffset={"3rem"}>
           <p className="leading-snug text-3xl mt-2 text-off-white">
             As a unicorn, I have passion for building beautiful and functional
@@ -184,7 +187,6 @@ const IntroWhoAmI = () => {
       },
       exit: {
         opacity: 1,
-        backgroundColor: "aaaa",
         transform: "rotateY(180deg)"
       }
     }
@@ -195,15 +197,15 @@ const IntroWhoAmI = () => {
   return (
     <section
       ref={introRef}
-      className="intro bg-black grid-bg-intro h-screen pt-32"
+      className="intro bg-black grid-bg-intro h-screen lg:pt-32 mobile:pt-20"
     >
-      <div className="mx-auto w-11/12 max-w-summary h-1/2 intro-panel-main">
+      <div className="mx-auto w-11/12 max-w-summary lg:h-1/2 mobile:h-3/4 intro-panel-main">
         {transitionDefinition((style, i) => {
           if (i === 1) {
             playIntroMainAnim.current = false;
           }
           return (
-            <animated.div style={style} className="intro-panel-inner">
+            <animated.div style={style} className="mobile:mt-20 intro-panel-inner">
               {i === 0 ? 
                 <WhoAmIMain shouldPlayAnim={playIntroMainAnim.current} onUnicornButtonClick={() => setPanelIndex(1)} /> : 
                 <UnicornDefinition onBackButtonClick={() => setPanelIndex(0)}/>}
@@ -212,7 +214,7 @@ const IntroWhoAmI = () => {
         }
         )}
       </div>
-      <div className="intro-skills h-skills-ticker w-11/12 relative top-20 mx-auto">
+      <div className="top-20 intro-skills h-skills-ticker w-11/12 relative mx-auto">
         <SkillsTicker {...rect} />
       </div>
     </section>

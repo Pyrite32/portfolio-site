@@ -27,16 +27,23 @@ const Overview = () => {
           <span className="clip-paper grid-bg big-clip-paper bg-black absolute hidden mega:block " />
           <span className="clip-paper grid-bg clip-paper-small bg-black absolute block mega:hidden" />
           <div className="absolute top-72 xl:top-32 w-full h-full">
-            <div className="relative z-10 flex items-end w-11/12 mx-auto pointer-events-none p-10">
+            <div className="relative z-10 flex items-end w-11/12 mobile:right-5 mobileL:mx-auto mobileL:right-0 pointer-events-none p-10">
               <div className="flex flex-col leading-tight relative bottom-32 mr-auto">
-                <h1 className="font-unbounded text-7xl mobile:mt-64 ">
+                <h1 className="font-unbounded mobile:text-6xl mobile:text-center md:text-left lg:text-7xl mobile:mt-64 ">
                   <PopInText delay={50}>Patrick Keefe</PopInText>
                 </h1>
-                <p className="text-off-white">
+                <p className="text-off-white pt-8 mobile:hidden sm:block">
                   <PopInText delay={500}>
-                    FRONT-END ENGINEER - GAME DEVELOPER - ARTIST
+                    FRONT-END ENGINEER | GAME DEVELOPER | ARTIST
                   </PopInText>
                 </p>
+
+                <p className="text-off-white pt-8 text-center sm:hidden">
+                  <PopInText delay={500}>
+                    FRONT-END ENGINEER GAME DEVELOPER ARTIST
+                  </PopInText>
+                </p>
+
               </div>
               <PopIn topOffset={"2rem"}>
                 <img
