@@ -10,6 +10,7 @@ import CourseworkShowcase from './views/CourseworkShowcase'
 import RepeatingTextTicker from './components/RepeatingTextTicker'
 import ContactMe from './views/ContactMe'
 import { PopInText } from './components/PopInText'
+import './components/GridBg.css'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <main className="main-content bg-light-gray">
         {/* <PopInText sentence={"hi my name is patrick"} /> */}
         <Overview />
+        <div className='bg-black grid-bg-space' />
         <IntroWhoAmI />
         <AppsShowcase/>
         <ArtShowcase/>

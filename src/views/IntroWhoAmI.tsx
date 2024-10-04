@@ -199,7 +199,7 @@ const IntroWhoAmI = () => {
       ref={introRef}
       className="intro bg-black grid-bg-intro h-intro lg:pt-20 mobile:pt-20"
     >
-      <div className="mx-auto w-11/12 max-w-summary lg:h-1/2 mobile:h-3/4 intro-panel-main sm:pb-20">
+      <div className="mx-auto sm:w-11/12 lg:w-8/12 max-w-summary lg:h-1/2 mobile:h-3/4 intro-panel-main sm:pb-10">
         {transitionDefinition((style, i) => {
           if (i === 1) {
             playIntroMainAnim.current = false;
@@ -214,7 +214,7 @@ const IntroWhoAmI = () => {
         }
         )}
       </div>
-      <div className="sm:bottom-0 sm:top-0 md:bottom-12 lg:top-32 mobile:bottom-32 w-11/12 relative mx-auto">
+      <div className="sm:bottom-32 sm:top-0 md:bottom-0 lg:top-32 mobile:bottom-32 w-11/12 relative mx-auto">
         <SkillsTicker {...rect} />
       </div>
     </section>

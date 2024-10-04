@@ -1,0 +1,24 @@
+.grid-bg-space {
+    background-image: url('../assets/grid-bg-opacity-30.png');
+    animation: 1s linear infinite bg-move-space;
+    will-change: background-position;
+    height: calc(59px * 4);
+}
+
+/* I know some people who get motion sickness */
+@media (prefers-reduced-motion) {
+    .grid-bg-space {
+        animation: none;
+    }
+}
+
+@keyframes bg-move-space {
+    0% {
+        background-position: 0% 0px;
+    }
+
+    to {
+        /* width of the image */
+        background-position:  59px  0px;
+    }
+}
