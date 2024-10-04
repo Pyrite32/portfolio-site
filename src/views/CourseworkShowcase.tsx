@@ -116,7 +116,7 @@ const CourseworkShowcase = () => {
                 />
               ))}
             </div>
-            <p className="sm:inline mobile:hidden text-fuschia font-serif text-right leading-none">
+            <p className="sm:block mobile:hidden text-fuschia font-serif text-right leading-none">
               &lt;/Coursework&gt;
             </p>
           </div>
