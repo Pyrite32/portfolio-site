@@ -34,7 +34,7 @@ const CharacterDesignPager = (props: {index : number}) => {
 
     return (
         <>
-        <div id="char-design__gallery" className='w-10/12 mx-auto pswp-gallery image-grid__row px-2 flex justify-between'>
+        <div id="char-design__gallery" className='sm:w-full md:w-10/12 mx-auto pswp-gallery image-grid__row px-2 flex justify-between'>
            <div className='image-grid__column-double'>
                 <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.ritual} style={spring} />
                 <AnimatedImage sourceFolder={"char-design"} data={charDesignImages.luka360} style={spring} />
