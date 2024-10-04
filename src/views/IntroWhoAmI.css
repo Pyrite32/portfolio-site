@@ -74,6 +74,13 @@
     }   
 }
 
+@media screen and (max-width: 479px) {
+    .h-intro {
+        height: 140vh;
+    }   
+}
+
+
 
 .back-btn {
     transition-property: background-color, transform;
