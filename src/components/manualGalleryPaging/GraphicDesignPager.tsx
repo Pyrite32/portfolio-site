@@ -34,7 +34,7 @@ const GraphicDesignPager = (props: {index : number}) => {
 
     return (
         <>
-        <div id="graphic-design__gallery" className='sm:w-full md:w-10/12 w-10*/12 mx-auto pswp-gallery image-grid__row px-2'>
+        <div id="graphic-design__gallery" className='sm:w-full mx-auto pswp-gallery image-grid__row px-2'>
            <div className='image-grid__column'>
                 <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.chromeclash1} style={spring} />
                 <AnimatedImage sourceFolder={"ui"} data={graphicDesignImages.chromeclash2} style={spring} />
