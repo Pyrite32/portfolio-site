@@ -4,6 +4,7 @@ import Burger from "../components/Burger";
 import TornPaperEdge from "../assets/torn-paper-edge.png";
 import TornPaper from "../assets/torn-paper.png";
 import Profile from "../assets/profile.png";
+import ProfileDrawn from "../assets/profile-drawn.png";
 import { PopInText } from "../components/PopInText";
 import PopIn from "../components/PopIn";
 
@@ -46,11 +47,18 @@ const Overview = () => {
 
               </div>
               <PopIn topOffset={"2rem"}>
-                <img
-                  src={Profile}
-                  width="860px"
-                  className="max-w-min lg:block xl:mb-0 relative bottom-20 mobile:hidden"
-                />
+                  <img
+                    src={Profile}
+                    width="860px"
+                    height="860px"
+                    className="profile-one max-w-min relative xl:mb-0 bottom-20"
+                  />
+                  <img
+                    src={ProfileDrawn}
+                    width="860px"
+                    height="860px"
+                    className="profile-two max-w-min xl:mb-0 relative bottom-20"
+                  />
               </PopIn>
             </div>
           </div>
