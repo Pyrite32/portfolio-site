@@ -1,5 +1,5 @@
 import "./ContactMe.css";
-import Eagle from "../assets/eagle2.png";
+import Pfp from "../assets/image-pfp.png";
 import { useEffect, useRef, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 
@@ -52,7 +52,7 @@ const ContactMe = () => {
       <div className="flex-grow flex lg:flex-row mobile:flex-col  justify-center gap-8 md:gap-12 xl:gap-20 mb-10 h-max-form-height">
         <div className="pt-0 flex-grow">
             <div className="mx-auto text-center font-pixbold text-2xl text-off-white">
-                <img src={Eagle} alt="" className="mx-auto mb-4"/>
+                <img src={Pfp} width="256px" alt="" className="mx-auto mb-4"/>
                 <h2 className="mb-2 pb-2">Patrick Keefe</h2>
                 <p className="pb-1 text-xl font-pixel">Email: <a className="text-teal underline underline-offset-4" href="mailto:patrick@method93.com">patrick@method93.com</a></p>
                 <p className="pb-1 text-xl font-pixel">Phone Number: <a className="text-teal underline underline-offset-4" href="tel:+14074031056">407-403-1056</a></p>
