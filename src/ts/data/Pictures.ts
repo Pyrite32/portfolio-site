@@ -1,4 +1,3 @@
-const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
 
 export const charDesign = [
     {

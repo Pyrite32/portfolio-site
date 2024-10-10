@@ -19,14 +19,12 @@ import rustIcon from "../assets/my-skills-icons/rust.png";
 import tailwindIcon from "../assets/my-skills-icons/tailwind.png";
 import toonBoomIcon from "../assets/my-skills-icons/toon-boom.png";
 import typescriptIcon from "../assets/my-skills-icons/typescript.png";
-import unityIcon from "../assets/my-skills-icons/unity.png";
 import webflowIcon from "../assets/my-skills-icons/webflow.png";
 import muiIcon from "../assets/my-skills-icons/mui.png";
 import "./SkillsTicker.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import useMeasure, { RectReadOnly } from "react-use-measure";
 import remap from '../ts/remap'
-import { useInView } from "@react-spring/web";
 // load icons
 // move an icon until it disappears
 // track whenever icon escapes screen fully
@@ -129,7 +127,7 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
 }) => {
   const [showTooltip, set] = useState(false);
   const [ref, rect] = useMeasure();
-  const [tooltipRef, tooltipRect] = useMeasure();
+  const [tooltipRef] = useMeasure();
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollTop, setScrollTop] = useState(0);

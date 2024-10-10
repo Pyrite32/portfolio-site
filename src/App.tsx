@@ -1,6 +1,3 @@
-import { ReactNode, useRef, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Overview from "./views/Overview"
 import IntroWhoAmI from './views/IntroWhoAmI' 
@@ -9,7 +6,6 @@ import ArtShowcase from "./views/ArtShowcase"
 import CourseworkShowcase from './views/CourseworkShowcase'
 import RepeatingTextTicker from './components/RepeatingTextTicker'
 import ContactMe from './views/ContactMe'
-import { PopInText } from './components/PopInText'
 import './components/GridBg.css'
 
 

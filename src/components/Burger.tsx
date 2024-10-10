@@ -1,4 +1,3 @@
-import BurgerIcon from "../assets/hamburger-menu.svg";
 
 const Burger = () => {
   return (

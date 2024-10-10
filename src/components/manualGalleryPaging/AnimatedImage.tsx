@@ -1,4 +1,4 @@
-import { animated, SpringValue, SpringValues } from "@react-spring/web";
+import { animated, SpringValues } from "@react-spring/web";
 import { useId } from "react";
 
 interface ImageData {
@@ -8,17 +8,6 @@ interface ImageData {
   alt: string;
 }
 
-const sourceOf = (data: ImageData) => {
-    return `art-gallery/char-design/${data.asset}`
-}
-
-const scaled = (data: ImageData, scaleXY: number) => {
-    return { maxWidth: (data.width * scaleXY), maxHeight: (data.height * scaleXY)}
-}
-
-const scaledXY = (data: ImageData, scaleX: number, scaleY: number) => {
-    return { maxWidth: (data.width * scaleX), maxHeight: (data.height * scaleY)}
-}
 
 const Image = (props: {sourceFolder: string, data: ImageData, style: SpringValues}) => {
   const randID = useId();

@@ -65,7 +65,7 @@ const AppsShowcaseRoulette = () => {
           pages.length - 1,
           Math.max(0, newIndex)
         );
-        setPageData((old) => pages[currentIndex.current]);
+        setPageData((_) => pages[currentIndex.current]);
         flyInSpringApi.start({
           from: {
             opacity: 0,

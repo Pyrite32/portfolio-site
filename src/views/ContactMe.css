@@ -100,9 +100,6 @@
   max-height: 55%;
 }
 
-.submit-form__button-ready {
-  /* background-color: theme('colors.yellow'); */
-}
 
 .submit-form__button-inactive {
   /* background-color: theme('colors.gray'); */

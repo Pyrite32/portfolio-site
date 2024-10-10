@@ -1,15 +1,15 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import 'photoswipe/photoswipe.css';
 import './ImageGrid.css'
 
 import AnimatedImage from './AnimatedImage'
-import { useSpring, animated} from '@react-spring/web';
+import { useSpring} from '@react-spring/web';
 
 import charDesignImages from '../../ts/data/CharacterDesignImages';
 
-const CharacterDesignPager = (props: {index : number}) => {
+const CharacterDesignPager = () => {
 
     const spring = useSpring({
         from: { opacity: 0 },

@@ -1,11 +1,8 @@
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ArtShowcase.css";
 import {
-  useSpringRef,
   useSprings,
-  useTransition,
   animated,
-  AnimatedProps,
   config,
 } from "@react-spring/web";
 
@@ -104,16 +101,16 @@ const ArtGallery = () => {
             </div>
 
             <div style={{ display: categoryIndex === 0 ? "block" : "none" }}>
-              <CharacterDesignPager index={0} />
+              <CharacterDesignPager />
             </div>
             <div style={{ display: categoryIndex === 1 ? "block" : "none" }}>
-              <PixelArtPager index={0} />
+              <PixelArtPager />
             </div>
             <div style={{ display: categoryIndex === 2 ? "block" : "none" }}>
-              <GraphicDesignPager index={0} />
+              <GraphicDesignPager />
             </div>
             <div style={{ display: categoryIndex === 3 ? "block" : "none" }}>
-              <MiscDesignPager index={0} />
+              <MiscDesignPager />
             </div>
           </div>
         </div>

@@ -19,8 +19,6 @@
     background-color: theme('colors.teal');
 }
 
-.category-bar:hover .bar-selected {
-}
 
 .bar-selected,
 .bar-unselected {

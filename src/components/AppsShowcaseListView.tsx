@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import data, { AppShowcaseItemData } from "./AppsShowcaseData";
 import "./AppsShowcaseListView.css";
 import shuffle from '../ts/shuffle';
-import { useSprings, useSpringRef, animated } from "@react-spring/web";
+import { useSprings, animated } from "@react-spring/web";
 
 const AppsShowcaseListViewItem: React.FC<AppShowcaseItemData> = (props) => {
   return (

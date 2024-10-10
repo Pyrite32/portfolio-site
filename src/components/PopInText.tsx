@@ -1,15 +1,10 @@
 import {
   config,
   animated,
-  Lookup,
-  SpringRef,
-  SpringValue,
-  SpringValues,
-  useScroll,
   useSprings,
   useInView,
 } from "@react-spring/web";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 
 import "./PopInText.css";
 import ease10 from '../ts/ease10'

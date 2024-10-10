@@ -1,6 +1,6 @@
 import "./ContactMe.css";
 import Pfp from "../assets/image-pfp.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import { useForm } from "@formspree/react";
 

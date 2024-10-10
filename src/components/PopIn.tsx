@@ -1,5 +1,5 @@
 import { animated, config, useInView, useSpring } from "@react-spring/web";
-import { ReactNode, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ease10 from "../ts/ease10";
 import { Property } from 'csstype'
 

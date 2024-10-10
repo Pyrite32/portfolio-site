@@ -1,8 +1,6 @@
 import "./Overview.css";
 import Logo from "../assets/logo.svg";
-import Burger from "../components/Burger";
 import TornPaperEdge from "../assets/torn-paper-edge.png";
-import TornPaper from "../assets/torn-paper.png";
 import Profile from "../assets/profile.png";
 import ProfileDrawn from "../assets/profile-drawn.png";
 import { PopInText } from "../components/PopInText";

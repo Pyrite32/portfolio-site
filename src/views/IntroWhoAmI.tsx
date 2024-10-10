@@ -6,7 +6,6 @@ import {
   useTransition,
 } from "@react-spring/web";
 import PopIn from "../components/PopIn";
-import { PopInText } from "../components/PopInText";
 import SkillsTicker from "../components/SkillsTicker";
 import "./IntroWhoAmI.css";
 import useMeasure from "react-use-measure";

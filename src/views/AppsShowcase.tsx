@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./AppsShowcase.css";
 import AppsShowcaseRoulette from "../components/AppsShowcaseRoulette";
 import AppsShowcaseListView from "../components/AppsShowcaseListView";
-import { useSpring, animated } from "@react-spring/web";
+import { animated } from "@react-spring/web";
 import PopIn from "../components/PopIn";
 
 const AppsShowcase = () => {

@@ -1,11 +1,9 @@
-import useMeasure from "react-use-measure";
 import CourseworkTile from "../components/CourseworkTile";
 import "./CourseworkShowcase.css";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { lgCardStyles, mdCardStyles, smCardStyles } from "../ts/data/CardStyles";
 import remap from "../ts/remap";
 import courses from "../ts/data/Courses";
-import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import PopIn from "../components/PopIn";
 import { animated, useScroll } from "@react-spring/web";
 import CardStyle from "../ts/CardStyle";
