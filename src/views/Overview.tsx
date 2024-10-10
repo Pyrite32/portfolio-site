@@ -1,5 +1,5 @@
 import "./Overview.css";
-import Logo from "../assets/logo-placeholder.png";
+import Logo from "../assets/logo.svg";
 import Burger from "../components/Burger";
 import TornPaperEdge from "../assets/torn-paper-edge.png";
 import TornPaper from "../assets/torn-paper.png";
@@ -16,7 +16,7 @@ const Overview = () => {
           <div className="overview-top__bar w-full flex justify-between align-middle">
             <span className="overview-top__bar-logo pt-2 pointer-events-none">
               <PopIn>
-                <img src={Logo} alt="logo" width="48px" height="48px" data-scroll/>
+                <img src={Logo} className="pointer-events-none" alt="logo" width="48px" height="48px" data-scroll/>
               </PopIn>
             </span>
             {/* <span className="transition ease-out hover:scale-125 pr-16">
