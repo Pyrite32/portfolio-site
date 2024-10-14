@@ -159,7 +159,8 @@ const SkillsTickerIcon: React.FC<SkillsTickerIconData> = ({
           opacity: showTooltip ? "100%" : "50%",
           width: "7.5%",
           height: "auto",
-          minHeight: "80%"
+          minHeight: "80%",
+          minWidth: "7.5%",
         }}
       />
         <div

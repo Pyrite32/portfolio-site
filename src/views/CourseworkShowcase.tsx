@@ -62,7 +62,7 @@ const CourseworkShowcase = () => {
             top: scrollYProgress.to((value) => `${100 + value * -200}px`),
           }}
         >
-          <div className="py-20 sm:px-0 mobileL:w-10/12 sm:w-8/12 mx-auto h-full gap-0">
+          <div className="py-20 sm:px-0 mobileL:w-10/12 sm:w-9/12 mx-auto h-full gap-0">
             <p className="sm:inline mobile:hidden text-fuschia font-serif leading-none">
               &lt;Coursework&gt;
             </p>
