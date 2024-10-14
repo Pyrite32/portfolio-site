@@ -1,5 +1,5 @@
 import { animated, config, useInView, useSpringRef, useTransition } from "@react-spring/web";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const titles = ["a Programmer", "an Artist", "a UX Designer", "a Unicorn"];
 
