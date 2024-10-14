@@ -20,34 +20,23 @@ const WhoAmITitle = (props: {
     config: config.default,
   });
 
-  const timeout = useMemo(() => {
-    // there has to be a better way.
-    let index = 0;
-    return setInterval(() => {
-      if (index < titles.length - 1 && isVisible) {
-        console.log("titleIndex: " + index + " len: " + (titles.length - 1));
-        // THIS IS SO CURSED            v!
-        index += 1;
-        setTitleIndex((prev) => Math.min(titles.length - 1, prev + 0.5));
-      }
-    }, 2000);
-  }, [isVisible]);
-
   useEffect(() => {
-    if (!isVisible) {
-      clearInterval(timeout);
-    }
-  }, [isVisible]);
-
-  useEffect(() => {
-    if (titleIndex === titles.length - 1) {
-      console.log("clearing index!");
-      clearInterval(timeout);
-    }
-    if (titleIndex < titles.length) {
-      transRef.start();
-    }
+    transRef.start();
   }, [titleIndex]);
+
+  useEffect(() => {
+    const interval = isVisible ? setInterval(() => {
+        setTitleIndex(prev => prev < titles.length - 1 ? prev + 1 : prev);
+        if (titleIndex <= titles.length - 1) {
+            console.log(titleIndex);
+        }
+    }, 1500) : undefined;
+    return () => {
+        if (interval) {
+            clearInterval(interval)
+        }
+    };
+  }, [isVisible])
 
   return (
     <span ref={ref} className="relative ml-4 mobile:top-3 lg:top-0">
