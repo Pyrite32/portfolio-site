@@ -14,17 +14,20 @@
 .open-card__right {
     background-color: theme('colors.black');
     width: calc(200% + 3px);
+    height: fit-content;
 }
 
 .open-card__left {
     background-color: theme('colors.black');
     left: calc(-100% - 3px);
     width: calc(200% + 3px);
+    height: fit-content;
 }
 
 .open-card__center {
     background-color: theme('colors.black');
     width: 100%;
+    height: fit-content;
 }
 
 

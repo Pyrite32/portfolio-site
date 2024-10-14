@@ -9,7 +9,7 @@ import PopIn from "../components/PopIn";
 const Overview = () => {
   return (
     <>
-      <section className="overview" data-scroll-section>
+      <section className="overview min-h-max" data-scroll-section>
         <header className="overview-top__bar-wrapper p-2 mx-4 my-4">
           <div className="overview-top__bar w-full flex justify-between align-middle">
             <span className="overview-top__bar-logo pt-2 pointer-events-none">
@@ -24,7 +24,7 @@ const Overview = () => {
         </header>
         <div className="overview-remainder relative">
           <span className="clip-paper grid-bg big-clip-paper bg-black absolute hidden mega:block " />
-          <span className="clip-paper grid-bg clip-paper-small bg-black absolute block mega:hidden" />
+          <span className="clip-paper grid-bg clip-paper-small bg-black absolute hidden sm:block mega:hidden" />
           <div className="absolute mobile:pt-96 mobile:top-16 lg:top-0 lg:pt-0  xl:bottom-16 w-full h-full">
             <div className="relative top-20 z-10 flex items-end w-11/12 mobile:right-5 mobileL:mx-auto mobileL:right-0 pointer-events-none p-10">
               <div className="flex flex-col justify-center pb-16 leading-tight relative bottom-32 mr-auto">
@@ -63,7 +63,7 @@ const Overview = () => {
           <img
             src={TornPaperEdge}
             alt="paper-edge"
-            className="relative top-36 pointer-events-none min-w-max block mega:hidden"
+            className="relative top-36 pointer-events-none min-w-max hidden sm:block mega:hidden"
           />
           <img
             src={TornPaperEdge}
